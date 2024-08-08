@@ -1,3 +1,5 @@
+[![CI Pipeline](https://github.com/dominikcebula/algorithms/actions/workflows/maven.yml/badge.svg)](https://github.com/dominikcebula/algorithms/actions/workflows/maven.yml)
+
 # Introduction
 
 This repository contains sample Algorithms & Data Structures.
@@ -7,7 +9,7 @@ This repository contains sample Algorithms & Data Structures.
 ## Dynamic Programming Algorithms
 
 * Coin
-  Change - [Solutions](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2FCoinChange.java), [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2FCoinChangeTest.java)
+  Change - [Solution](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2FCoinChange.java), [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2FCoinChangeTest.java)
 
 # Author
 
