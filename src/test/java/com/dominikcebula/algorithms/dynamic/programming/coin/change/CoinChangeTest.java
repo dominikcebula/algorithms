@@ -1,4 +1,4 @@
-package com.dominikcebula.algorithms.dynamic.programming;
+package com.dominikcebula.algorithms.dynamic.programming.coin.change;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

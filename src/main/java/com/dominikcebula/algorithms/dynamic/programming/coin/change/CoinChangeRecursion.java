@@ -1,4 +1,4 @@
-package com.dominikcebula.algorithms.dynamic.programming;
+package com.dominikcebula.algorithms.dynamic.programming.coin.change;
 
 public class CoinChangeRecursion {
     public int solve(int sum, int[] coinDenominations) {

@@ -1,4 +1,4 @@
-package com.dominikcebula.algorithms.dynamic.programming;
+package com.dominikcebula.algorithms.dynamic.programming.coin.change;
 
 import com.dominikcebula.algorithms.utils.ArrayUtils;
 
