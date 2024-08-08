@@ -10,9 +10,9 @@ This repository contains sample Algorithms & Data Structures.
 
 ### Coin Change
 
-* [Solution - Recursion](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2FCoinChangeRecursion.java)
-* [Solution - Memoization](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2FCoinChangeMemoization.java)
-* [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2FCoinChangeTest.java)
+* [Solution - Recursion](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fcoin%2Fchange%2FCoinChangeRecursion.java)
+* [Solution - Memoization](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fcoin%2Fchange%2FCoinChangeMemoization.java)
+* [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fcoin%2Fchange%2FCoinChangeTest.java)
 
 # Author
 
