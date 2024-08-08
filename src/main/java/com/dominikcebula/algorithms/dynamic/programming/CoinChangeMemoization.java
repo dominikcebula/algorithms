@@ -2,7 +2,7 @@ package com.dominikcebula.algorithms.dynamic.programming;
 
 import com.dominikcebula.algorithms.utils.ArrayUtils;
 
-public class CoinChange {
+public class CoinChangeMemoization {
     private static final int NO_VALUE = -1;
 
     public int solve(int sum, int[] coinDenominations) {

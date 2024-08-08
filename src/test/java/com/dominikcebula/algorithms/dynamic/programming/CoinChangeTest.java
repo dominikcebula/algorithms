@@ -9,7 +9,8 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CoinChangeTest {
-    private final CoinChange coinChange = new CoinChange();
+    private final CoinChangeRecursion coinChangeRecursion = new CoinChangeRecursion();
+    private final CoinChangeMemoization coinChangeMemoization = new CoinChangeMemoization();
 
     private static Stream<Arguments> coinChangeTestCases() {
         return Stream.of(
@@ -34,8 +35,16 @@ class CoinChangeTest {
 
     @ParameterizedTest
     @MethodSource("coinChangeTestCases")
-    void shouldSolveCoinChaneProblemCorrectly(int sum, int[] coinDenominations, int expectedNumberOfCombinations) {
-        int numberOfCombinations = coinChange.solve(sum, coinDenominations);
+    void shouldSolveCoinChaneProblemCorrectlyUsingRecursion(int sum, int[] coinDenominations, int expectedNumberOfCombinations) {
+        int numberOfCombinations = coinChangeRecursion.solve(sum, coinDenominations);
+
+        assertEquals(expectedNumberOfCombinations, numberOfCombinations);
+    }
+
+    @ParameterizedTest
+    @MethodSource("coinChangeTestCases")
+    void shouldSolveCoinChaneProblemCorrectlyUsingMemoization(int sum, int[] coinDenominations, int expectedNumberOfCombinations) {
+        int numberOfCombinations = coinChangeMemoization.solve(sum, coinDenominations);
 
         assertEquals(expectedNumberOfCombinations, numberOfCombinations);
     }
