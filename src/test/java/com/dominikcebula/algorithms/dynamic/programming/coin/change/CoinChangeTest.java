@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CoinChangeTest {
     private final CoinChangeRecursion coinChangeRecursion = new CoinChangeRecursion();
     private final CoinChangeMemoization coinChangeMemoization = new CoinChangeMemoization();
+    private final CoinChangeTabulation coinChangeTabulation = new CoinChangeTabulation();
 
     private static Stream<Arguments> coinChangeTestCases() {
         return Stream.of(
@@ -45,6 +46,14 @@ class CoinChangeTest {
     @MethodSource("coinChangeTestCases")
     void shouldSolveCoinChaneProblemCorrectlyUsingMemoization(int sum, int[] coinDenominations, int expectedNumberOfCombinations) {
         int numberOfCombinations = coinChangeMemoization.countCoinCombinationsToMakeGivenSum(sum, coinDenominations);
+
+        assertEquals(expectedNumberOfCombinations, numberOfCombinations);
+    }
+
+    @ParameterizedTest
+    @MethodSource("coinChangeTestCases")
+    void shouldSolveCoinChaneProblemCorrectlyUsingTabulation(int sum, int[] coinDenominations, int expectedNumberOfCombinations) {
+        int numberOfCombinations = coinChangeTabulation.countCoinCombinationsToMakeGivenSum(sum, coinDenominations);
 
         assertEquals(expectedNumberOfCombinations, numberOfCombinations);
     }
