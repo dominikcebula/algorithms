@@ -36,7 +36,7 @@ class CoinChangeTest {
     @ParameterizedTest
     @MethodSource("coinChangeTestCases")
     void shouldSolveCoinChaneProblemCorrectlyUsingRecursion(int sum, int[] coinDenominations, int expectedNumberOfCombinations) {
-        int numberOfCombinations = coinChangeRecursion.solve(sum, coinDenominations);
+        int numberOfCombinations = coinChangeRecursion.countCoinCombinationsToMakeGivenSum(sum, coinDenominations);
 
         assertEquals(expectedNumberOfCombinations, numberOfCombinations);
     }
@@ -44,7 +44,7 @@ class CoinChangeTest {
     @ParameterizedTest
     @MethodSource("coinChangeTestCases")
     void shouldSolveCoinChaneProblemCorrectlyUsingMemoization(int sum, int[] coinDenominations, int expectedNumberOfCombinations) {
-        int numberOfCombinations = coinChangeMemoization.solve(sum, coinDenominations);
+        int numberOfCombinations = coinChangeMemoization.countCoinCombinationsToMakeGivenSum(sum, coinDenominations);
 
         assertEquals(expectedNumberOfCombinations, numberOfCombinations);
     }
