@@ -12,20 +12,29 @@ public class CoinChangeMemoization {
         return countCoinCombinationsToMakeGivenSum(sum, coinDenominations, 0, memo);
     }
 
-    private int countCoinCombinationsToMakeGivenSum(int sum, int[] coinDenominations, int currentCoin, int[][] memo) {
+    private int countCoinCombinationsToMakeGivenSum(int sum, int[] coinDenominations, int currentCoinIdx, int[][] memo) {
         if (sum == 0)
             return 1;
 
         if (sum < 0)
             return 0;
 
-        if (memo[sum][currentCoin] != NO_VALUE)
-            return memo[sum][currentCoin];
+        if (memo[sum][currentCoinIdx] != NO_VALUE)
+            return memo[sum][currentCoinIdx];
 
-        if (currentCoin >= coinDenominations.length)
+        if (currentCoinIdx >= coinDenominations.length)
             return 0;
 
-        return memo[sum][currentCoin] = countCoinCombinationsToMakeGivenSum(sum - coinDenominations[currentCoin], coinDenominations, currentCoin, memo)
-                + countCoinCombinationsToMakeGivenSum(sum, coinDenominations, currentCoin + 1, memo);
+        int nextCoinIdx = currentCoinIdx + 1;
+        int numberOfCombinationsWithoutSelectingCurrentCoin = countCoinCombinationsToMakeGivenSum(sum, coinDenominations, nextCoinIdx, memo);
+
+        int currentCoinValue = coinDenominations[currentCoinIdx];
+        int sumDecreasedBySelectedCurrentCoinValue = sum - currentCoinValue;
+        int numberOfCombinationsIncludingCurrentCoin = countCoinCombinationsToMakeGivenSum(sumDecreasedBySelectedCurrentCoinValue, coinDenominations, currentCoinIdx, memo);
+
+        int numberOfCombinationsForGivenSum = numberOfCombinationsWithoutSelectingCurrentCoin + numberOfCombinationsIncludingCurrentCoin;
+        memo[sum][currentCoinIdx] = numberOfCombinationsForGivenSum;
+
+        return numberOfCombinationsForGivenSum;
     }
 }

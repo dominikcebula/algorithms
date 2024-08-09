@@ -5,17 +5,23 @@ public class CoinChangeRecursion {
         return countCoinCombinationsToMakeGivenSum(sum, coinDenominations, 0);
     }
 
-    private int countCoinCombinationsToMakeGivenSum(int sum, int[] coinDenominations, int currentCoin) {
+    private int countCoinCombinationsToMakeGivenSum(int sum, int[] coinDenominations, int currentCoinIdx) {
         if (sum == 0)
             return 1;
 
         if (sum < 0)
             return 0;
 
-        if (currentCoin >= coinDenominations.length)
+        if (currentCoinIdx >= coinDenominations.length)
             return 0;
 
-        return countCoinCombinationsToMakeGivenSum(sum - coinDenominations[currentCoin], coinDenominations, currentCoin)
-                + countCoinCombinationsToMakeGivenSum(sum, coinDenominations, currentCoin + 1);
+        int nextCoinIdx = currentCoinIdx + 1;
+        int numberOfCombinationsWithoutSelectingCurrentCoin = countCoinCombinationsToMakeGivenSum(sum, coinDenominations, nextCoinIdx);
+
+        int currentCoinValue = coinDenominations[currentCoinIdx];
+        int sumDecreasedBySelectedCurrentCoinValue = sum - currentCoinValue;
+        int numberOfCombinationsIncludingCurrentCoin = countCoinCombinationsToMakeGivenSum(sumDecreasedBySelectedCurrentCoinValue, coinDenominations, currentCoinIdx);
+
+        return numberOfCombinationsWithoutSelectingCurrentCoin + numberOfCombinationsIncludingCurrentCoin;
     }
 }
