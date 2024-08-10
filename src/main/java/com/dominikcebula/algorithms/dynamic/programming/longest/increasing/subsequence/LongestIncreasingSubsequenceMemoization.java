@@ -29,9 +29,6 @@ public class LongestIncreasingSubsequenceMemoization {
     }
 
     private int findLongestIncreasingSubsequence(int[] elements, int startElementValue, int currentElementIdx, int[] memo) {
-        if (currentElementIdx == elements.length)
-            return 1;
-
         if (memo[currentElementIdx] != NO_VALUE)
             return memo[currentElementIdx];
 

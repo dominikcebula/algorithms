@@ -21,9 +21,6 @@ public class LongestIncreasingSubsequenceRecursion {
     }
 
     private int findLongestIncreasingSubsequence(int[] elements, int startElementValue, int currentElementIdx) {
-        if (currentElementIdx == elements.length)
-            return 1;
-
         int longestIncreasingSubsequence = 0;
 
         for (int candidateIdx = currentElementIdx + 1; candidateIdx < elements.length; candidateIdx++) {
