@@ -2,17 +2,17 @@
 
 ## Description
 
-Given an array of elements, calculate length of Longest Increasing Subsequence.
+Given an array of elements, calculate the length of the Longest Increasing Subsequence (LIS).
 
-Longest Increasing Subsequence is a sequence of elements in which each next element is larger than the previous element.
+The Longest Increasing Subsequence is a sequence of elements in which each subsequent element is larger than the
+previous one.
 
-Sequence does not need to be continuous, you can skip elements, for example given elements `[1,-1,2,3]` the Longest
-Increasing Subsequence will
-be a sequence `[1, 2, 3]` that contains `3` elements created by skipping element `-1`.
+The sequence does not need to be continuous, and you can skip elements. For example, given the elements [1, -1, 2, 3],
+the Longest Increasing Subsequence would be [1, 2, 3], which contains three elements by skipping -1.
 
-Sequence can start and end at any element, for example, given elements `[5,-2,6,1,2,3,-5]`, then Longest Increasing
-Subsequence will be `[-2, 1, 2, 3]`, that is created by starting with non-first element, skipping third element and
-finishing with non-last element.
+The sequence can start and end at any element. For instance, given the elements [5, -2, 6, 1, 2, 3, -5], the Longest
+Increasing Subsequence would be [-2, 1, 2, 3]. This sequence is created by starting at a non-first element, skipping the
+third element, and finishing at a non-last element.
 
 ## Input
 
