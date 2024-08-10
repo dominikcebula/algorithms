@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class LongestIncreasingSubsequenceTest {
     private final LongestIncreasingSubsequenceRecursion longestIncreasingSubsequenceRecursion = new LongestIncreasingSubsequenceRecursion();
     private final LongestIncreasingSubsequenceMemoization longestIncreasingSubsequenceMemoization = new LongestIncreasingSubsequenceMemoization();
+    private final LongestIncreasingSubsequenceTabulation longestIncreasingSubsequenceTabulation = new LongestIncreasingSubsequenceTabulation();
 
     private static Stream<Arguments> longestIncreasingSubsequenceTestCases() {
         return Stream.of(
@@ -47,6 +48,14 @@ class LongestIncreasingSubsequenceTest {
     @MethodSource("longestIncreasingSubsequenceTestCases")
     void shouldFindLongestIncreasingSubsequenceUsingMemoization(int[] elements, int expectedLongestIncreasingSubsequence) {
         int longestIncreasingSubsequence = longestIncreasingSubsequenceMemoization.findLongestIncreasingSubsequence(elements);
+
+        assertEquals(expectedLongestIncreasingSubsequence, longestIncreasingSubsequence);
+    }
+
+    @ParameterizedTest
+    @MethodSource("longestIncreasingSubsequenceTestCases")
+    void shouldFindLongestIncreasingSubsequenceUsingTabulation(int[] elements, int expectedLongestIncreasingSubsequence) {
+        int longestIncreasingSubsequence = longestIncreasingSubsequenceTabulation.findLongestIncreasingSubsequence(elements);
 
         assertEquals(expectedLongestIncreasingSubsequence, longestIncreasingSubsequence);
     }
