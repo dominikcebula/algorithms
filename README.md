@@ -20,6 +20,7 @@ This repository contains sample Algorithms & Data Structures.
 
 * [Description](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Flongest%2Fincreasing%2Fsubsequence%2FREADME.md)
 * [Solution - Recursion](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Flongest%2Fincreasing%2Fsubsequence%2FLongestIncreasingSubsequenceRecursion.java)
+* [Solution - Memoization](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Flongest%2Fincreasing%2Fsubsequence%2FLongestIncreasingSubsequenceMemoization.java)
 * [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Flongest%2Fincreasing%2Fsubsequence%2FLongestIncreasingSubsequenceTest.java)
 
 # Author
