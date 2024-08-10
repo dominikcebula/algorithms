@@ -17,6 +17,7 @@ class LongestIncreasingSubsequenceTest {
                 Arguments.of(new int[]{10}, 1),
                 Arguments.of(new int[]{10, 20, 30}, 3),
                 Arguments.of(new int[]{30, 20, 10}, 1),
+                Arguments.of(new int[]{1, -1, 2, 3}, 3),
                 Arguments.of(new int[]{3, 10, 2, 1, 20}, 3),
                 Arguments.of(new int[]{50, 3, 10, 7, 40, 80}, 4),
                 Arguments.of(new int[]{50, 40, 30, 20, 10}, 1),
@@ -28,7 +29,8 @@ class LongestIncreasingSubsequenceTest {
                 Arguments.of(new int[]{1, 3, 6, 7, 9, 4, 10, 5, 6}, 6),
                 Arguments.of(new int[]{10, 9, 2, 5, 3, 7, 101, 18}, 4),
                 Arguments.of(new int[]{1, 2, 3, 2, 3, 4, 5}, 5),
-                Arguments.of(new int[]{9, 1, 3, 7, 5, 6, 20, 15}, 5)
+                Arguments.of(new int[]{9, 1, 3, 7, 5, 6, 20, 15}, 5),
+                Arguments.of(new int[]{5, -2, 6, 1, 2, 3, -5}, 4)
         );
     }
 
