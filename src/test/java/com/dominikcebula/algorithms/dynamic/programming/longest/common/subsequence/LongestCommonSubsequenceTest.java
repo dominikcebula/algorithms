@@ -19,8 +19,7 @@ class LongestCommonSubsequenceTest {
                 Arguments.of("A", "B", 0),
                 Arguments.of("ABC", "ACD", 2),
                 Arguments.of("ABC", "CBA", 1),
-                Arguments.of("XYZW", "XYWZ", 3),
-                Arguments.of("AGGTAB", "GXTXAYB", 4)
+                Arguments.of("XYZW", "XYWZ", 3), Arguments.of("AGGTAB", "GXTXAYB", 4), Arguments.of("XYZW", "XYWZ", 3), Arguments.of("ABCBDAB", "BDCAB", 4), Arguments.of("AGGTAB", "GXTXAYB", 4), Arguments.of("12345", "54321", 1), Arguments.of("ABCD", "EFGH", 0), Arguments.of("ABC", "ABC", 3), Arguments.of("AAB", "ABA", 2), Arguments.of("XMJYAUZ", "MZJAWXU", 4), Arguments.of("ABCDGH", "AEDFHR", 3), Arguments.of("ABC", "AC", 2), Arguments.of("BANANA", "ATANA", 4), Arguments.of("ABAZDC", "BACBAD", 4), Arguments.of("HELLO", "GELLO", 4), Arguments.of("ABCE", "ADFCE", 3), Arguments.of("GAC", "AGCAT", 2)
         );
     }
 
