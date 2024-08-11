@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class LongestCommonSubsequenceTest {
     private final LongestCommonSubsequenceRecursion longestCommonSubsequenceRecursion = new LongestCommonSubsequenceRecursion();
     private final LongestCommonSubsequenceMemoization longestCommonSubsequenceMemoization = new LongestCommonSubsequenceMemoization();
+    private final LongestCommonSubsequenceTabulation longestCommonSubsequenceTabulation = new LongestCommonSubsequenceTabulation();
 
     private static Stream<Arguments> longestCommonSubsequenceTestCases() {
         return Stream.of(
@@ -55,8 +56,16 @@ class LongestCommonSubsequenceTest {
 
     @ParameterizedTest
     @MethodSource("longestCommonSubsequenceTestCases")
-    void shouldFindLongestCommonSubsequenceUsingRecursionMemoization(String string1, String string2, int expectedLongestCommonSubsequence) {
+    void shouldFindLongestCommonSubsequenceUsingMemoization(String string1, String string2, int expectedLongestCommonSubsequence) {
         int longestCommonSubsequence = longestCommonSubsequenceMemoization.findLongestCommonSubsequence(string1, string2);
+
+        assertEquals(expectedLongestCommonSubsequence, longestCommonSubsequence);
+    }
+
+    @ParameterizedTest
+    @MethodSource("longestCommonSubsequenceTestCases")
+    void shouldFindLongestCommonSubsequenceUsingTabulation(String string1, String string2, int expectedLongestCommonSubsequence) {
+        int longestCommonSubsequence = longestCommonSubsequenceTabulation.findLongestCommonSubsequence(string1, string2);
 
         assertEquals(expectedLongestCommonSubsequence, longestCommonSubsequence);
     }
