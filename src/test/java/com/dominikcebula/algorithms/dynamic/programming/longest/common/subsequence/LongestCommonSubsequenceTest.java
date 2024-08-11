@@ -35,7 +35,12 @@ class LongestCommonSubsequenceTest {
                 Arguments.of("ABAZDC", "BACBAD", 4),
                 Arguments.of("HELLO", "GELLO", 4),
                 Arguments.of("ABCE", "ADFCE", 3),
-                Arguments.of("GAC", "AGCAT", 2)
+                Arguments.of("GAC", "AGCAT", 2),
+                Arguments.of("ABCDXYWZEFGH", "XYZEFGHABCD", 7),
+                Arguments.of("LONGESTCOMMON", "CONNECTIONS", 6),
+                Arguments.of("DYNAMICPROG", "AMICROGRAMMING", 7),
+                Arguments.of("SUBSEQUENCE", "CONSEQUENCES", 8),
+                Arguments.of("ALGORITHMS", "RHETORICAL", 3)
         );
     }
 
