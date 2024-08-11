@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LongestCommonSubsequenceTest {
     private final LongestCommonSubsequenceRecursion longestCommonSubsequenceRecursion = new LongestCommonSubsequenceRecursion();
+    private final LongestCommonSubsequenceMemoization longestCommonSubsequenceMemoization = new LongestCommonSubsequenceMemoization();
 
     private static Stream<Arguments> longestCommonSubsequenceTestCases() {
         return Stream.of(
@@ -48,6 +49,14 @@ class LongestCommonSubsequenceTest {
     @MethodSource("longestCommonSubsequenceTestCases")
     void shouldFindLongestCommonSubsequenceUsingRecursion(String string1, String string2, int expectedLongestCommonSubsequence) {
         int longestCommonSubsequence = longestCommonSubsequenceRecursion.findLongestCommonSubsequence(string1, string2);
+
+        assertEquals(expectedLongestCommonSubsequence, longestCommonSubsequence);
+    }
+
+    @ParameterizedTest
+    @MethodSource("longestCommonSubsequenceTestCases")
+    void shouldFindLongestCommonSubsequenceUsingRecursionMemoization(String string1, String string2, int expectedLongestCommonSubsequence) {
+        int longestCommonSubsequence = longestCommonSubsequenceMemoization.findLongestCommonSubsequence(string1, string2);
 
         assertEquals(expectedLongestCommonSubsequence, longestCommonSubsequence);
     }
