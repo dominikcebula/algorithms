@@ -13,6 +13,10 @@ class LongestCommonSubsequenceTest {
 
     private static Stream<Arguments> longestCommonSubsequenceTestCases() {
         return Stream.of(
+                Arguments.of("", "", 0),
+                Arguments.of("A", "", 0),
+                Arguments.of("", "B", 0),
+                Arguments.of("A", "B", 0),
                 Arguments.of("ABC", "ACD", 2),
                 Arguments.of("ABC", "CBA", 1),
                 Arguments.of("XYZW", "XYWZ", 3),
