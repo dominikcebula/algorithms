@@ -94,6 +94,16 @@ class MinCostPathTest {
                                 {4, 2, 2}},
                         1, 2, 4),
                 Arguments.of(new int[][]{
+                                {1, 2, 5},
+                                {3, 2, 1},
+                                {4, 2, 2}},
+                        2, 2, 5),
+                Arguments.of(new int[][]{
+                                {1, 2, 5},
+                                {3, 9, 1},
+                                {4, 2, 2}},
+                        2, 2, 6),
+                Arguments.of(new int[][]{
                                 {1, 9, 1, 1},
                                 {1, 5, 1, 1},
                                 {1, 1, 1, 1},
