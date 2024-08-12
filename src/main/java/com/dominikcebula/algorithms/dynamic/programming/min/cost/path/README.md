@@ -60,6 +60,6 @@ Given `costs[][]`
 4 1 8 2 7
 ```
 
-and given `(M, N) = (2, 2)`
+and given `(M, N) = (4, 4)`
 
 The minimum cost will be `23 = 5 + 1 + 2 + 6 + 2 + 7`.
