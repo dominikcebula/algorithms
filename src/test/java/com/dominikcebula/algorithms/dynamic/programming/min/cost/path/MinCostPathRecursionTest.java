@@ -14,6 +14,17 @@ class MinCostPathRecursionTest {
     private static Stream<Arguments> minCostPathTestCases() {
         return Stream.of(
                 Arguments.of(new int[][]{
+                                {1}},
+                        0, 0, 1),
+                Arguments.of(new int[][]{
+                                {1, 2},
+                                {3, 4}},
+                        1, 1, 5),
+                Arguments.of(new int[][]{
+                                {1, 2},
+                                {3, 4}},
+                        0, 1, 3),
+                Arguments.of(new int[][]{
                                 {1, 2, 3},
                                 {4, 8, 2},
                                 {1, 5, 3}},
