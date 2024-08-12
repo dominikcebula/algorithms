@@ -8,9 +8,10 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class MinCostPathRecursionTest {
+class MinCostPathTest {
     private final MinCostPathRecursion minCostPathRecursion = new MinCostPathRecursion();
     private final MinCostPathMemoization minCostPathMemoization = new MinCostPathMemoization();
+    private final MinCostPathTabulation minCostPathTabulation = new MinCostPathTabulation();
 
     private static Stream<Arguments> minCostPathTestCases() {
         return Stream.of(
@@ -164,6 +165,14 @@ class MinCostPathRecursionTest {
     @MethodSource("minCostPathTestCases")
     void shouldFindMinCostPathUsingMemoization(int[][] costs, int targetPositionM, int targetPositionN, int expectedMinCost) {
         int minCostPath = minCostPathMemoization.findMinCostPath(costs, targetPositionM, targetPositionN);
+
+        assertEquals(expectedMinCost, minCostPath);
+    }
+
+    @ParameterizedTest
+    @MethodSource("minCostPathTestCases")
+    void shouldFindMinCostPathUsingTabulation(int[][] costs, int targetPositionM, int targetPositionN, int expectedMinCost) {
+        int minCostPath = minCostPathTabulation.findMinCostPath(costs, targetPositionM, targetPositionN);
 
         assertEquals(expectedMinCost, minCostPath);
     }
