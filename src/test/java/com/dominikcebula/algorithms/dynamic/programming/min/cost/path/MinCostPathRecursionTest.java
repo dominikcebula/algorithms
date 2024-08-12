@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MinCostPathRecursionTest {
     private final MinCostPathRecursion minCostPathRecursion = new MinCostPathRecursion();
+    private final MinCostPathMemoization minCostPathMemoization = new MinCostPathMemoization();
 
     private static Stream<Arguments> minCostPathTestCases() {
         return Stream.of(
@@ -155,6 +156,14 @@ class MinCostPathRecursionTest {
     @MethodSource("minCostPathTestCases")
     void shouldFindMinCostPathUsingRecursion(int[][] costs, int targetPositionM, int targetPositionN, int expectedMinCost) {
         int minCostPath = minCostPathRecursion.findMinCostPath(costs, targetPositionM, targetPositionN);
+
+        assertEquals(expectedMinCost, minCostPath);
+    }
+
+    @ParameterizedTest
+    @MethodSource("minCostPathTestCases")
+    void shouldFindMinCostPathUsingMemoization(int[][] costs, int targetPositionM, int targetPositionN, int expectedMinCost) {
+        int minCostPath = minCostPathMemoization.findMinCostPath(costs, targetPositionM, targetPositionN);
 
         assertEquals(expectedMinCost, minCostPath);
     }
