@@ -1,4 +1,4 @@
-# Longest Common Subsequence
+# Min Cost Path
 
 ## Description
 
