@@ -18,6 +18,12 @@ class KnapsackProblemTest {
                         new int[]{4, 5, 1},
                         3, 4,
                         3
+                ),
+                Arguments.of(
+                        new int[]{1, 2, 3},
+                        new int[]{4, 5, 6},
+                        3, 3,
+                        0
                 )
         );
     }
