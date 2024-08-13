@@ -8,6 +8,12 @@ This repository contains sample Algorithms & Data Structures.
 
 ## Dynamic Programming Algorithms
 
+### Knapsack Problem
+
+* [Description](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fknapsack%2Fproblem%2FREADME.md)
+* [Solution - Recursion](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fknapsack%2Fproblem%2FKnapsackProblemRecursion.java)
+* [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fknapsack%2Fproblem%2FKnapsackProblemTest.java)
+
 ### Coin Change
 
 * [Description](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fcoin%2Fchange%2FREADME.md)
