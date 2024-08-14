@@ -2,25 +2,25 @@
 
 ## Description
 
-Calculate maximum profit of items that can be put into the bag. Bag has a specified capacity. Each item that can be put
-into the bag has profit and weight associated.
+The goal is to calculate the maximum profit of items that can be placed in a bag with a specified capacity. Each item
+has an associated profit and weight.
 
-Given `profits`, `weights`, `itemCount` and `bagCapacity`, the task is to find maximum profit of items that will fit
-into the bag.
+Given `profits`, `weights`, `itemCount`, and `bagCapacity`, the task is to find the maximum profit achievable by
+selecting all or a
+subset of items that can fit into the bag without exceeding its capacity.
 
-Item can be put completely into the bag, or cannot be put at all.
+Items can either be fully included in the bag or not included at all.
 
 ## Input
 
-* `profits[]` - array of integers - represents profit of each item
-* `weights[]` - array of integers - represents weight of each item
-* `itemCount` - integer - number of items
-* `bagCapacity` - integer - maximum weight of items that can be put into the bag
+* `profits[]` - an array of integers representing the profit of each item
+* `weights[]` - an array of integers representing the weight of each item
+* `itemCount` - an integer representing the number of items
+* `bagCapacity` - an integer representing the maximum weight the bag can hold
 
 ## Output
 
-* a single integer number representing maximum profit of items that can be put into the bag without exceeding it
-  capacity
+* A single integer representing the maximum profit that can be obtained without exceeding the bag's capacity
 
 ## Examples
 
