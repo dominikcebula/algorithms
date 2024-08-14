@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class KnapsackProblemTest {
     private final KnapsackProblemRecursion knapsackProblemRecursion = new KnapsackProblemRecursion();
     private final KnapsackProblemMemoization knapsackProblemMemoization = new KnapsackProblemMemoization();
+    private final KnapsackProblemTabulation knapsackProblemTabulation = new KnapsackProblemTabulation();
 
     private static Stream<Arguments> knapsackProblemTestCases() {
         return Stream.of(
@@ -101,6 +102,14 @@ class KnapsackProblemTest {
     @MethodSource("knapsackProblemTestCases")
     void shouldSolveKnapsackProblemUsingMemoization(int[] profits, int[] weights, int itemCount, int bagCapacity, int expectedMaxProfit) {
         int maxProfit = knapsackProblemMemoization.findMaxProfit(profits, weights, itemCount, bagCapacity);
+
+        assertEquals(expectedMaxProfit, maxProfit);
+    }
+
+    @ParameterizedTest
+    @MethodSource("knapsackProblemTestCases")
+    void shouldSolveKnapsackProblemUsingTabulation(int[] profits, int[] weights, int itemCount, int bagCapacity, int expectedMaxProfit) {
+        int maxProfit = knapsackProblemTabulation.findMaxProfit(profits, weights, itemCount, bagCapacity);
 
         assertEquals(expectedMaxProfit, maxProfit);
     }
