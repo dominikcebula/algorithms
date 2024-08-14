@@ -5,12 +5,14 @@ public class KnapsackProblemRecursion {
         if (itemCount <= 0 || bagCapacity <= 0)
             return 0;
 
-        if (weights[itemCount - 1] > bagCapacity)
-            return findMaxProfit(profits, weights, itemCount - 1, bagCapacity);
+        int currentItemIdx = itemCount - 1;
+
+        if (weights[currentItemIdx] > bagCapacity)
+            return findMaxProfit(profits, weights, currentItemIdx, bagCapacity);
         else
             return Math.max(
-                    findMaxProfit(profits, weights, itemCount - 1, bagCapacity),
-                    profits[itemCount - 1] + findMaxProfit(profits, weights, itemCount - 1, bagCapacity - weights[itemCount - 1])
+                    findMaxProfit(profits, weights, currentItemIdx, bagCapacity),
+                    profits[currentItemIdx] + findMaxProfit(profits, weights, currentItemIdx, bagCapacity - weights[currentItemIdx])
             );
     }
 }
