@@ -2,15 +2,15 @@
 
 ## Description
 
-TBD
+Find Longest Palindromic Subsequence in a given string. Palindromic Subsequence does not have to be continuous.
 
 ## Input
 
-TBD
+* A single string in which Longest Palindromic Subsequence should be found
 
 ## Output
 
-TBD
+* A single integer representing the length of Longest Palindromic Subsequence found in a given string.
 
 ## Examples
 
