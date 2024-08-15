@@ -40,6 +40,14 @@ This repository contains sample Algorithms & Data Structures.
 * [Solution - Tabulation](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Flongest%2Fcommon%2Fsubsequence%2FLongestCommonSubsequenceTabulation.java)
 * [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Flongest%2Fcommon%2Fsubsequence%2FLongestCommonSubsequenceTest.java)
 
+### Longest Palindromic Subsequence
+
+* [Description](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Flongest%2Fpalindromic%2Fsubsequence%2FREADME.md)
+* [Solution - Recursion](TBD)
+* [Solution - Memoization](TBD)
+* [Solution - Tabulation](TBD)
+* [Tests](TBD)
+
 ### Min Cost Path
 
 * [Description](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fmin%2Fcost%2Fpath%2FREADME.md)
