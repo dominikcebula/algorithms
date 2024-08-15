@@ -19,7 +19,7 @@ class LongestPalindromicSubsequenceRecursionTest {
                 Arguments.of("AABB", 2),
                 Arguments.of("ABBA", 4),
                 Arguments.of("AABBAA", 6),
-                Arguments.of("AXABXBAXA", 6),
+                Arguments.of("AFABCBADA", 6),
                 Arguments.of("ACABCBACA", 4),
                 Arguments.of("BBABCBCAB", 7),
                 Arguments.of("REDIVIDER", 9),
