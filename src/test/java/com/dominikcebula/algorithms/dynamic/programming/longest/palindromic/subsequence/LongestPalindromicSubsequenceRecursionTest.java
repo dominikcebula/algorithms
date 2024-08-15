@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LongestPalindromicSubsequenceRecursionTest {
     private final LongestPalindromicSubsequenceRecursion longestPalindromicSubsequenceRecursion = new LongestPalindromicSubsequenceRecursion();
+    private final LongestPalindromicSubsequenceMemoization longestPalindromicSubsequenceMemoization = new LongestPalindromicSubsequenceMemoization();
 
     private static Stream<Arguments> longestPalindromicSubsequenceTestCases() {
         return Stream.of(
@@ -39,6 +40,14 @@ class LongestPalindromicSubsequenceRecursionTest {
     @MethodSource("longestPalindromicSubsequenceTestCases")
     void shouldFindLongestPalindromicSubsequenceUsingRecursion(String string, int expectedLongestPalindromicSubsequence) {
         int longestPalindromicSubsequence = longestPalindromicSubsequenceRecursion.findLongestPalindromicSubsequence(string);
+
+        assertEquals(expectedLongestPalindromicSubsequence, longestPalindromicSubsequence);
+    }
+
+    @ParameterizedTest
+    @MethodSource("longestPalindromicSubsequenceTestCases")
+    void shouldFindLongestPalindromicSubsequenceUsingMemoization(String string, int expectedLongestPalindromicSubsequence) {
+        int longestPalindromicSubsequence = longestPalindromicSubsequenceMemoization.findLongestPalindromicSubsequence(string);
 
         assertEquals(expectedLongestPalindromicSubsequence, longestPalindromicSubsequence);
     }
