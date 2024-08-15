@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class LongestPalindromicSubsequenceRecursionTest {
     private final LongestPalindromicSubsequenceRecursion longestPalindromicSubsequenceRecursion = new LongestPalindromicSubsequenceRecursion();
     private final LongestPalindromicSubsequenceMemoization longestPalindromicSubsequenceMemoization = new LongestPalindromicSubsequenceMemoization();
+    private final LongestPalindromicSubsequenceTabulation longestPalindromicSubsequenceTabulation = new LongestPalindromicSubsequenceTabulation();
 
     private static Stream<Arguments> longestPalindromicSubsequenceTestCases() {
         return Stream.of(
@@ -48,6 +49,14 @@ class LongestPalindromicSubsequenceRecursionTest {
     @MethodSource("longestPalindromicSubsequenceTestCases")
     void shouldFindLongestPalindromicSubsequenceUsingMemoization(String string, int expectedLongestPalindromicSubsequence) {
         int longestPalindromicSubsequence = longestPalindromicSubsequenceMemoization.findLongestPalindromicSubsequence(string);
+
+        assertEquals(expectedLongestPalindromicSubsequence, longestPalindromicSubsequence);
+    }
+
+    @ParameterizedTest
+    @MethodSource("longestPalindromicSubsequenceTestCases")
+    void shouldFindLongestPalindromicSubsequenceUsingTabulation(String string, int expectedLongestPalindromicSubsequence) {
+        int longestPalindromicSubsequence = longestPalindromicSubsequenceTabulation.findLongestPalindromicSubsequence(string);
 
         assertEquals(expectedLongestPalindromicSubsequence, longestPalindromicSubsequence);
     }
