@@ -21,7 +21,9 @@ class PalindromePartitioningRecursionTest {
                 Arguments.of("abbac", 1),
                 Arguments.of("cabbac", 2),
                 Arguments.of("ababbbabbababa", 3),
-                Arguments.of("abbacddc", 2)
+                Arguments.of("abbacddc", 2),
+                Arguments.of("abcdefgh", 8),
+                Arguments.of("aaaabbbb", 2)
         );
     }
 
