@@ -1,11 +1,11 @@
 package com.dominikcebula.algorithms.dynamic.programming.palindrome.partitioning;
 
 public class PalindromePartitioningRecursion {
-    public int findMinCutsToGetPalindrome(String string) {
-        return findMinCutsToGetPalindrome(string.toCharArray(), 0, string.length() - 1);
+    public int findMinCutsToGetPalindromes(String string) {
+        return findMinCutsToGetPalindromes(string.toCharArray(), 0, string.length() - 1);
     }
 
-    private int findMinCutsToGetPalindrome(char[] string, int beginIdx, int endIdx) {
+    private int findMinCutsToGetPalindromes(char[] string, int beginIdx, int endIdx) {
         if (beginIdx == endIdx)
             return 0;
 
@@ -17,8 +17,8 @@ public class PalindromePartitioningRecursion {
         for (int cutIdx = beginIdx + 1; cutIdx <= endIdx; cutIdx++) {
             minCuts = Math.min(
                     minCuts,
-                    findMinCutsToGetPalindrome(string, beginIdx, cutIdx - 1) +
-                            findMinCutsToGetPalindrome(string, cutIdx, endIdx) + 1
+                    findMinCutsToGetPalindromes(string, beginIdx, cutIdx - 1) +
+                            findMinCutsToGetPalindromes(string, cutIdx, endIdx) + 1
             );
         }
 

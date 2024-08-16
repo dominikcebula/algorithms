@@ -13,11 +13,11 @@ class PalindromePartitioningRecursionTest {
 
     private static Stream<Arguments> palindromePartitioningUseCases() {
         return Stream.of(
-                Arguments.of("peek", 2),
                 Arguments.of("a", 0),
                 Arguments.of("aa", 0),
                 Arguments.of("aaaa", 0),
                 Arguments.of("abba", 0),
+                Arguments.of("peek", 2),
                 Arguments.of("abbac", 1),
                 Arguments.of("cabbac", 0),
                 Arguments.of("ababbbabbababa", 3),
@@ -30,8 +30,8 @@ class PalindromePartitioningRecursionTest {
 
     @ParameterizedTest
     @MethodSource("palindromePartitioningUseCases")
-    void shouldFindMinCutsToGetPalindromeUsingRecursion(String string, int expectedMinCutsToGetPalindrome) {
-        int minCutsToGetPalindrome = palindromePartitioningRecursion.findMinCutsToGetPalindrome(string);
+    void shouldFindMinCutsToGetPalindromesUsingRecursion(String string, int expectedMinCutsToGetPalindrome) {
+        int minCutsToGetPalindrome = palindromePartitioningRecursion.findMinCutsToGetPalindromes(string);
 
         assertEquals(expectedMinCutsToGetPalindrome, minCutsToGetPalindrome);
     }
