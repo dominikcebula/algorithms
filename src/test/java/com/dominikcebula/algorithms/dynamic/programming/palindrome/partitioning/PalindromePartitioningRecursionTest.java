@@ -13,7 +13,15 @@ class PalindromePartitioningRecursionTest {
 
     private static Stream<Arguments> palindromePartitioningUseCases() {
         return Stream.of(
-                Arguments.of("peek", 2)
+                Arguments.of("peek", 2),
+                Arguments.of("a", 0),
+                Arguments.of("aa", 0),
+                Arguments.of("aaaa", 0),
+                Arguments.of("abba", 0),
+                Arguments.of("abbac", 1),
+                Arguments.of("cabbac", 2),
+                Arguments.of("ababbbabbababa", 3),
+                Arguments.of("abbacddc", 2)
         );
     }
 
