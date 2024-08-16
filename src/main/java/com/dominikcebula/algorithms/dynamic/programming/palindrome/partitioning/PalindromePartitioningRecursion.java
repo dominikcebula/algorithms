@@ -6,9 +6,6 @@ public class PalindromePartitioningRecursion {
     }
 
     private int findMinCutsToGetPalindromes(char[] string, int beginIdx, int endIdx) {
-        if (beginIdx == endIdx)
-            return 0;
-
         if (isPalindrome(string, beginIdx, endIdx))
             return 0;
 
