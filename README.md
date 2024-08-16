@@ -56,6 +56,12 @@ This repository contains sample Algorithms & Data Structures.
 * [Solution - Tabulation](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fmin%2Fcost%2Fpath%2FMinCostPathMemoization.java)
 * [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fmin%2Fcost%2Fpath%2FMinCostPathTest.java)
 
+### Palindrome Partitioning
+
+* [Description](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fpalindrome%2Fpartitioning%2FREADME.md)
+* [Solution - Recursion](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fpalindrome%2Fpartitioning%2FPalindromePartitioningRecursion.java)
+* [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fpalindrome%2Fpartitioning%2FPalindromePartitioningRecursionTest.java)
+
 # Author
 
 Dominik Cebula
