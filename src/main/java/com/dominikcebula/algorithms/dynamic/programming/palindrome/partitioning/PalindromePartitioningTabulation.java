@@ -8,8 +8,10 @@ public class PalindromePartitioningTabulation {
     private int findMinCutsToGetPalindromes(char[] string) {
         int[][] minCuts = new int[string.length][string.length];
 
-        for (int beginIdx = 0; beginIdx < string.length - 1; beginIdx++) {
-            for (int endIdx = beginIdx + 1; endIdx < string.length; endIdx++) {
+        for (int candidateLength = 2; candidateLength <= string.length; candidateLength++) {
+            for (int beginIdx = 0; beginIdx + candidateLength - 1 < string.length; beginIdx++) {
+                int endIdx = beginIdx + candidateLength - 1;
+
                 if (isPalindrome(string, beginIdx, endIdx)) {
                     minCuts[beginIdx][endIdx] = 0;
                 } else {
