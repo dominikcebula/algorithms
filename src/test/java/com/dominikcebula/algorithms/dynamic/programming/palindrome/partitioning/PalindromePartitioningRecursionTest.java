@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PalindromePartitioningRecursionTest {
     private final PalindromePartitioningRecursion palindromePartitioningRecursion = new PalindromePartitioningRecursion();
+    private final PalindromePartitioningTabulation palindromePartitioningTabulation = new PalindromePartitioningTabulation();
 
     private static Stream<Arguments> palindromePartitioningUseCases() {
         return Stream.of(
@@ -32,6 +33,14 @@ class PalindromePartitioningRecursionTest {
     @MethodSource("palindromePartitioningUseCases")
     void shouldFindMinCutsToGetPalindromesUsingRecursion(String string, int expectedMinCutsToGetPalindrome) {
         int minCutsToGetPalindrome = palindromePartitioningRecursion.findMinCutsToGetPalindromes(string);
+
+        assertEquals(expectedMinCutsToGetPalindrome, minCutsToGetPalindrome);
+    }
+
+    @ParameterizedTest
+    @MethodSource("palindromePartitioningUseCases")
+    void shouldFindMinCutsToGetPalindromesUsingTabulation(String string, int expectedMinCutsToGetPalindrome) {
+        int minCutsToGetPalindrome = palindromePartitioningTabulation.findMinCutsToGetPalindromes(string);
 
         assertEquals(expectedMinCutsToGetPalindrome, minCutsToGetPalindrome);
     }
