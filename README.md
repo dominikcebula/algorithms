@@ -4,7 +4,7 @@
 
 This repository contains sample Algorithms & Data Structures.
 
-# Algorithm types
+# Algorithm
 
 ## Dynamic Programming Algorithms
 
@@ -62,6 +62,18 @@ This repository contains sample Algorithms & Data Structures.
 * [Solution - Recursion](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fpalindrome%2Fpartitioning%2FPalindromePartitioningRecursion.java)
 * [Solution - Tabulation](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fpalindrome%2Fpartitioning%2FPalindromePartitioningTabulation.java)
 * [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fpalindrome%2Fpartitioning%2FPalindromePartitioningRecursionTest.java)
+
+# Data Structures
+
+## Linked List
+
+* [Implementation](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Fdata%2Fstructures%2Flist%2FLinkedList.java)
+* [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Fdata%2Fstructures%2Flist%2FLinkedListTest.java)
+
+## Stack
+
+* [Implementation](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Fdata%2Fstructures%2Fstack%2FStack.java)
+* [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Fdata%2Fstructures%2Fstack%2FStackTest.java)
 
 # Author
 
