@@ -223,4 +223,24 @@ class LinkedListTest {
         assertThat(list.toArray())
                 .isEqualTo(new Integer[]{2, 1, 3});
     }
+
+    @Test
+    void shouldRemoveElementsAndEndUpWithEmptyList() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        list.addFirst(1);
+        list.addFirst(2);
+        list.addLast(3);
+        list.addLast(4);
+
+        list.removeLast();
+        list.removeFirst();
+        list.removeLast();
+        list.removeFirst();
+
+        assertThat(list.isEmpty())
+                .isTrue();
+        assertThat(list.toArray())
+                .isEmpty();
+    }
 }
