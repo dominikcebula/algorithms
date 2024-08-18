@@ -8,11 +8,17 @@ public class Heap<T> {
     private int size;
 
     public Heap(Class<T> elementClass, int capacity) {
+        if (capacity <= 0)
+            throw new IllegalArgumentException("Heap capacity needs to be greater than zero.");
+
         elements = (T[]) Array.newInstance(elementClass, capacity);
     }
 
     public T peek() {
-        return null;
+        if (size > 0)
+            return elements[0];
+        else
+            return null;
     }
 
     public T pop() {
