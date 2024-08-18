@@ -4,7 +4,7 @@
 
 This repository contains sample Algorithms & Data Structures.
 
-# Algorithm
+# Algorithms
 
 ## Dynamic Programming Algorithms
 
