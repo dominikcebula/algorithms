@@ -95,4 +95,46 @@ class LinkedListTest {
         assertThat(list.toArray())
                 .isNotEmpty();
     }
+
+    @Test
+    void shouldReturnFirstElementCorrectly() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        list.addFirst(1);
+        list.addFirst(2);
+        list.addLast(3);
+        list.addLast(4);
+
+        assertThat(list.getFirst())
+                .isEqualTo(2);
+    }
+
+    @Test
+    void shouldReturnNullForFirstElementWhenListIsEmpty() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        assertThat(list.getFirst())
+                .isNull();
+    }
+
+    @Test
+    void shouldReturnLastElementCorrectly() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        list.addFirst(1);
+        list.addFirst(2);
+        list.addLast(3);
+        list.addLast(4);
+
+        assertThat(list.getLast())
+                .isEqualTo(4);
+    }
+
+    @Test
+    void shouldReturnNullForLastElementWhenListIsEmpty() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        assertThat(list.getLast())
+                .isNull();
+    }
 }

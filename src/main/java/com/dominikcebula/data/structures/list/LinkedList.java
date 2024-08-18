@@ -48,11 +48,17 @@ public class LinkedList<T> {
     }
 
     public T getFirst() {
-        return null;
+        if (isEmpty())
+            return null;
+        else
+            return head.getElement();
     }
 
     public T getLast() {
-        return null;
+        if (isEmpty())
+            return null;
+        else
+            return tail.getElement();
     }
 
     public boolean isEmpty() {
