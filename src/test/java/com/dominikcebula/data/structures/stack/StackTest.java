@@ -79,4 +79,14 @@ class StackTest {
         assertThat(stack.isEmpty())
                 .isTrue();
     }
+
+    @Test
+    void shouldNotPopElementOnEmptyStack() {
+        Stack<Integer> stack = new Stack<>();
+
+        assertThat(stack.pop()).isNull();
+
+        assertThat(stack.isEmpty())
+                .isTrue();
+    }
 }
