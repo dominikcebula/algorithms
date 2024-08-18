@@ -18,7 +18,8 @@ public class LinkedList<T> {
             head = tail = new Node<>(element);
         } else {
             Node<T> newNode = new Node<>(element);
-            newNode.next = head;
+            newNode.setNext(head);
+            head.setPrev(newNode);
             head = newNode;
         }
 
@@ -26,7 +27,16 @@ public class LinkedList<T> {
     }
 
     public void addLast(T element) {
+        if (tail == null) {
+            head = tail = new Node<>(element);
+        } else {
+            Node<T> newNode = new Node<>(element);
+            newNode.setPrev(tail);
+            tail.setNext(newNode);
+            tail = newNode;
+        }
 
+        ++size;
     }
 
     public void removeFirst() {

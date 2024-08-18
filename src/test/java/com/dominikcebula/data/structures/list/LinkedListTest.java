@@ -36,4 +36,39 @@ class LinkedListTest {
         assertThat(list.toArray())
                 .isEqualTo(new Integer[]{3, 2, 1});
     }
+
+    @Test
+    void shouldAddOneElementToTail() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        list.addLast(1);
+
+        assertThat(list.toArray())
+                .isEqualTo(new Integer[]{1});
+    }
+
+    @Test
+    void shouldAddThreeElementsToTail() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+
+        assertThat(list.toArray())
+                .isEqualTo(new Integer[]{1, 2, 3});
+    }
+
+    @Test
+    void shouldAddElementsToHeadAndTail() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        list.addFirst(1);
+        list.addFirst(2);
+        list.addLast(3);
+        list.addLast(4);
+
+        assertThat(list.toArray())
+                .isEqualTo(new Integer[]{2, 1, 3, 4});
+    }
 }
