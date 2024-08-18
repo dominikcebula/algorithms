@@ -40,11 +40,29 @@ public class LinkedList<T> {
     }
 
     public void removeFirst() {
+        if (!isEmpty()) {
+            head = head.getNext();
+            if (head != null) {
+                head.setPrev(null);
+            } else {
+                tail = null;
+            }
 
+            --size;
+        }
     }
 
     public void removeLast() {
+        if (!isEmpty()) {
+            tail = tail.getPrev();
+            if (tail != null) {
+                tail.setNext(null);
+            } else {
+                head = null;
+            }
 
+            --size;
+        }
     }
 
     public T getFirst() {

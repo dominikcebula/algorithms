@@ -137,4 +137,90 @@ class LinkedListTest {
         assertThat(list.getLast())
                 .isNull();
     }
+
+    @Test
+    void shouldDoNothingWhenTryingToRemoveFirstElementOnEmptyList() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        list.removeFirst();
+
+        assertThat(list.isEmpty())
+                .isTrue();
+        assertThat(list.toArray())
+                .isEmpty();
+    }
+
+    @Test
+    void shouldDoNothingWhenTryingToRemoveLastElementOnEmptyList() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        list.removeLast();
+
+        assertThat(list.isEmpty())
+                .isTrue();
+        assertThat(list.toArray())
+                .isEmpty();
+    }
+
+    @Test
+    void shouldRemoveFirstElementFromOneElementList() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        list.addFirst(1);
+
+        list.removeFirst();
+
+        assertThat(list.isEmpty())
+                .isTrue();
+        assertThat(list.toArray())
+                .isEmpty();
+    }
+
+    @Test
+    void shouldRemoveLastElementFromOneElementList() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        list.addLast(1);
+
+        list.removeLast();
+
+        assertThat(list.isEmpty())
+                .isTrue();
+        assertThat(list.toArray())
+                .isEmpty();
+    }
+
+    @Test
+    void shouldRemoveFirstElementFromMultipleElementList() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        list.addFirst(1);
+        list.addFirst(2);
+        list.addLast(3);
+        list.addLast(4);
+
+        list.removeFirst();
+
+        assertThat(list.isEmpty())
+                .isFalse();
+        assertThat(list.toArray())
+                .isEqualTo(new Integer[]{1, 3, 4});
+    }
+
+    @Test
+    void shouldRemoveLastElementFromMultipleElementList() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        list.addFirst(1);
+        list.addFirst(2);
+        list.addLast(3);
+        list.addLast(4);
+
+        list.removeLast();
+
+        assertThat(list.isEmpty())
+                .isFalse();
+        assertThat(list.toArray())
+                .isEqualTo(new Integer[]{2, 1, 3});
+    }
 }
