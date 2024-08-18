@@ -37,8 +37,10 @@ public class Heap<T> {
 
     }
 
-    private void swap() {
-
+    private void swap(int indexOne, int indexTwo) {
+        T value = elements[indexOne];
+        elements[indexOne] = elements[indexTwo];
+        elements[indexTwo] = value;
     }
 
     private T getParentValue(int currentIndex) {
