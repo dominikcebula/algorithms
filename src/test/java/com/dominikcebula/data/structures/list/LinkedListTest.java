@@ -71,4 +71,28 @@ class LinkedListTest {
         assertThat(list.toArray())
                 .isEqualTo(new Integer[]{2, 1, 3, 4});
     }
+
+    @Test
+    void shouldNotBeEmptyAfterAddingAtLeastOneElementToHead() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        list.addFirst(1);
+
+        assertThat(list.isEmpty())
+                .isFalse();
+        assertThat(list.toArray())
+                .isNotEmpty();
+    }
+
+    @Test
+    void shouldNotBeEmptyAfterAddingAtLeastOneElementToTail() {
+        LinkedList<Integer> list = new LinkedList<>(Integer.class);
+
+        list.addLast(1);
+
+        assertThat(list.isEmpty())
+                .isFalse();
+        assertThat(list.toArray())
+                .isNotEmpty();
+    }
 }
