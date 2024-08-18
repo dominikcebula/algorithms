@@ -1,55 +1,55 @@
 package com.dominikcebula.data.structures.stack;
 
 public class Stack<T> {
-    private Node<T> topNode;
+    private StackElement<T> topStackElement;
 
     public T peek() {
-        if (topNode != null)
-            return topNode.getElement();
+        if (topStackElement != null)
+            return topStackElement.getValue();
         else
             return null;
     }
 
     public T pop() {
-        if (topNode != null) {
-            T topElement = topNode.getElement();
-            topNode = topNode.getNext();
+        if (topStackElement != null) {
+            T topElement = topStackElement.getValue();
+            topStackElement = topStackElement.getNext();
             return topElement;
         } else
             return null;
     }
 
     public void push(T element) {
-        if (topNode == null)
-            topNode = new Node<>(element);
+        if (topStackElement == null)
+            topStackElement = new StackElement<>(element);
         else {
-            Node<T> newNode = new Node<>(element);
-            newNode.setNext(topNode);
-            topNode = newNode;
+            StackElement<T> newStackElement = new StackElement<>(element);
+            newStackElement.setNext(topStackElement);
+            topStackElement = newStackElement;
         }
     }
 
     public boolean isEmpty() {
-        return topNode != null;
+        return topStackElement == null;
     }
 
-    private static final class Node<T> {
-        private final T element;
-        private Node<T> next;
+    private static class StackElement<T> {
+        private final T value;
+        private StackElement<T> next;
 
-        Node(T element) {
-            this.element = element;
+        StackElement(T value) {
+            this.value = value;
         }
 
-        public T getElement() {
-            return element;
+        public T getValue() {
+            return value;
         }
 
-        public Node<T> getNext() {
+        public StackElement<T> getNext() {
             return next;
         }
 
-        public void setNext(Node<T> next) {
+        public void setNext(StackElement<T> next) {
             this.next = next;
         }
     }

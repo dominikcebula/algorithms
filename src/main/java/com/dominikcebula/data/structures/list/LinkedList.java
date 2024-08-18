@@ -97,7 +97,7 @@ public class LinkedList<T> {
         return array;
     }
 
-    private static final class Node<T> {
+    private static class Node<T> {
         private final T element;
         private Node<T> prev;
         private Node<T> next;
