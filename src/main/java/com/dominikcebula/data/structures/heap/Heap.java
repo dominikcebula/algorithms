@@ -73,11 +73,15 @@ public class Heap<T extends Comparable<T>> {
             if (hasRightChild(currentIndex)) {
                 T rightChildValue = getRightChildValue(currentIndex);
 
-                if (rightChildValue.compareTo(smallerChildValue) < 0)
+                if (rightChildValue.compareTo(smallerChildValue) < 0) {
                     smallerChildIndex = getRightChildIndex(currentIndex);
+                    smallerChildValue = rightChildValue;
+                }
             }
 
-            swap(currentIndex, smallerChildIndex);
+            T currentValue = getValue(currentIndex);
+            if (smallerChildValue.compareTo(currentValue) < 0)
+                swap(currentIndex, smallerChildIndex);
 
             currentIndex = smallerChildIndex;
         }
