@@ -1,13 +1,18 @@
 package com.dominikcebula.data.structures.heap;
 
+import com.dominikcebula.data.structures.stack.Stack;
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class Heap<T> {
+public class Heap<T extends Comparable<T>> {
+    private final Class<T> elementClass;
+
     private T[] elements;
     private int size;
 
     public Heap(Class<T> elementClass, int capacity) {
+        this.elementClass = elementClass;
         if (capacity <= 0)
             throw new IllegalArgumentException("Heap capacity needs to be greater than zero.");
 
@@ -19,8 +24,10 @@ public class Heap<T> {
     }
 
     public void add(T element) {
+        ensureCapacity();
         elements[size] = element;
         ++size;
+        heapifyUp();
     }
 
     public T peek() {
@@ -34,6 +41,30 @@ public class Heap<T> {
         return elements[0];
     }
 
+    public T[] toArray() {
+        T[] array = (T[]) Array.newInstance(elementClass, size);
+
+        if (isEmpty())
+            return array;
+
+        Stack<Integer> heapIndexes = new Stack<>();
+        heapIndexes.push(0);
+        int currentArrayIndex = 0;
+
+        while (!heapIndexes.isEmpty()) {
+            Integer currentHeapIndex = heapIndexes.pop();
+
+            array[currentArrayIndex++] = getValue(currentHeapIndex);
+
+            if (hasLeftChild(currentArrayIndex))
+                heapIndexes.push(getLeftChildIndex(currentHeapIndex));
+            if (hasRightChild(currentArrayIndex))
+                heapIndexes.push(getRightChildIndex(currentHeapIndex));
+        }
+
+        return array;
+    }
+
     private void ensureCapacity() {
         if (size == elements.length) {
             elements = Arrays.copyOf(elements, elements.length * 2);
@@ -41,7 +72,13 @@ public class Heap<T> {
     }
 
     private void heapifyUp() {
+        int currentIndex = size - 1;
 
+        while (hasParent(currentIndex) && getParentValue(currentIndex).compareTo(getValue(currentIndex)) > 0) {
+            swap(currentIndex, getParentIndex(currentIndex));
+
+            currentIndex = getParentIndex(currentIndex);
+        }
     }
 
     private void heapifyDown() {
@@ -52,6 +89,10 @@ public class Heap<T> {
         T value = elements[indexOne];
         elements[indexOne] = elements[indexTwo];
         elements[indexTwo] = value;
+    }
+
+    private T getValue(int currentIndex) {
+        return elements[currentIndex];
     }
 
     private T getParentValue(int currentIndex) {

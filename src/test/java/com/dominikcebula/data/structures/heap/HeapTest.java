@@ -11,6 +11,8 @@ class HeapTest {
 
         assertThat(heap.isEmpty())
                 .isTrue();
+        assertThat(heap.toArray())
+                .isEmpty();
     }
 
     @Test
@@ -37,6 +39,8 @@ class HeapTest {
 
         assertThat(heap.peek())
                 .isEqualTo(1);
+        assertThat(heap.toArray())
+                .isEqualTo(new Integer[]{1});
         assertThat(heap.pop())
                 .isEqualTo(1);
     }
