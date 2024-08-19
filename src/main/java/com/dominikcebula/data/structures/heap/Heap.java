@@ -14,6 +14,15 @@ public class Heap<T> {
         elements = (T[]) Array.newInstance(elementClass, capacity);
     }
 
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public void add(T element) {
+        elements[size] = element;
+        ++size;
+    }
+
     public T peek() {
         if (size > 0)
             return elements[0];
@@ -22,11 +31,7 @@ public class Heap<T> {
     }
 
     public T pop() {
-        return null;
-    }
-
-    public void add(T element) {
-
+        return elements[0];
     }
 
     private void ensureCapacity() {
