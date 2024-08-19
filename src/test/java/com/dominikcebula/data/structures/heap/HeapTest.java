@@ -79,6 +79,32 @@ class HeapTest {
     }
 
     @Test
+    void shouldAddGiveElementsInDifferentOrder() {
+        Heap<Integer> heap = new Heap<>(Integer.class, 20);
+
+        heap.add(5);
+        heap.add(3);
+        heap.add(2);
+        heap.add(1);
+        heap.add(4);
+
+        assertThat(heap.peek()).isEqualTo(1);
+        assertThat(heap.pop()).isEqualTo(1);
+
+        assertThat(heap.peek()).isEqualTo(2);
+        assertThat(heap.pop()).isEqualTo(2);
+
+        assertThat(heap.peek()).isEqualTo(3);
+        assertThat(heap.pop()).isEqualTo(3);
+
+        assertThat(heap.peek()).isEqualTo(4);
+        assertThat(heap.pop()).isEqualTo(4);
+
+        assertThat(heap.peek()).isEqualTo(5);
+        assertThat(heap.pop()).isEqualTo(5);
+    }
+
+    @Test
     void shouldReturnNullForPeekAndPopAfterRemovingAllElements() {
         Heap<Integer> heap = new Heap<>(Integer.class, 20);
 
