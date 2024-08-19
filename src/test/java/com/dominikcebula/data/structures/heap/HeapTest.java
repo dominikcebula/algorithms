@@ -98,6 +98,27 @@ class HeapTest {
     }
 
     @Test
+    void shouldAddAndPopMultipleElementsInReverseOrder() {
+        Heap<Integer> heap = new Heap<>(Integer.class, 3);
+
+        heap.add(18);
+        heap.add(16);
+        heap.add(14);
+        heap.add(10);
+        heap.add(12);
+        heap.add(8);
+        heap.add(5);
+
+        assertThat(heap.pop()).isEqualTo(5);
+        assertThat(heap.pop()).isEqualTo(8);
+        assertThat(heap.pop()).isEqualTo(10);
+        assertThat(heap.pop()).isEqualTo(12);
+        assertThat(heap.pop()).isEqualTo(14);
+        assertThat(heap.pop()).isEqualTo(16);
+        assertThat(heap.pop()).isEqualTo(18);
+    }
+
+    @Test
     void shouldNotAllowEmptyCapacityHeapCreation() {
         IllegalArgumentException thrownException = assertThrows(IllegalArgumentException.class, () -> {
             new Heap<>(Integer.class, 0);
