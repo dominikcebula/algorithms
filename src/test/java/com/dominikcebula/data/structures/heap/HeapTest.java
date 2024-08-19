@@ -11,8 +11,6 @@ class HeapTest {
 
         assertThat(heap.isEmpty())
                 .isTrue();
-        assertThat(heap.toArray())
-                .isEmpty();
     }
 
     @Test
@@ -39,9 +37,28 @@ class HeapTest {
 
         assertThat(heap.peek())
                 .isEqualTo(1);
-        assertThat(heap.toArray())
-                .isEqualTo(new Integer[]{1});
         assertThat(heap.pop())
                 .isEqualTo(1);
+    }
+
+    @Test
+    void shouldAddAndPopMultipleElements() {
+        Heap<Integer> heap = new Heap<>(Integer.class, 3);
+
+        heap.add(16);
+        heap.add(10);
+        heap.add(5);
+        heap.add(8);
+        heap.add(14);
+        heap.add(12);
+        heap.add(18);
+
+        assertThat(heap.pop()).isEqualTo(5);
+        assertThat(heap.pop()).isEqualTo(8);
+        assertThat(heap.pop()).isEqualTo(10);
+        assertThat(heap.pop()).isEqualTo(12);
+        assertThat(heap.pop()).isEqualTo(14);
+        assertThat(heap.pop()).isEqualTo(16);
+        assertThat(heap.pop()).isEqualTo(18);
     }
 }

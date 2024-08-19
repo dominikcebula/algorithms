@@ -1,7 +1,5 @@
 package com.dominikcebula.data.structures.heap;
 
-import com.dominikcebula.data.structures.stack.Stack;
-
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
@@ -31,38 +29,22 @@ public class Heap<T extends Comparable<T>> {
     }
 
     public T peek() {
-        if (size > 0)
-            return elements[0];
-        else
+        if (isEmpty())
             return null;
-    }
 
-    public T pop() {
         return elements[0];
     }
 
-    public T[] toArray() {
-        T[] array = (T[]) Array.newInstance(elementClass, size);
-
+    public T pop() {
         if (isEmpty())
-            return array;
+            return null;
 
-        Stack<Integer> heapIndexes = new Stack<>();
-        heapIndexes.push(0);
-        int currentArrayIndex = 0;
-
-        while (!heapIndexes.isEmpty()) {
-            Integer currentHeapIndex = heapIndexes.pop();
-
-            array[currentArrayIndex++] = getValue(currentHeapIndex);
-
-            if (hasLeftChild(currentArrayIndex))
-                heapIndexes.push(getLeftChildIndex(currentHeapIndex));
-            if (hasRightChild(currentArrayIndex))
-                heapIndexes.push(getRightChildIndex(currentHeapIndex));
-        }
-
-        return array;
+        T removedElement = elements[0];
+        elements[0] = elements[size - 1];
+        elements[size - 1] = null;
+        --size;
+        heapifyDown();
+        return removedElement;
     }
 
     private void ensureCapacity() {
@@ -82,7 +64,23 @@ public class Heap<T extends Comparable<T>> {
     }
 
     private void heapifyDown() {
+        int currentIndex = 0;
 
+        while (hasLeftChild(currentIndex)) {
+            int smallerChildIndex = getLeftChildIndex(currentIndex);
+            T smallerChildValue = getLeftChildValue(currentIndex);
+
+            if (hasRightChild(currentIndex)) {
+                T rightChildValue = getRightChildValue(currentIndex);
+
+                if (rightChildValue.compareTo(smallerChildValue) < 0)
+                    smallerChildIndex = getRightChildIndex(currentIndex);
+            }
+
+            swap(currentIndex, smallerChildIndex);
+
+            currentIndex = smallerChildIndex;
+        }
     }
 
     private void swap(int indexOne, int indexTwo) {
