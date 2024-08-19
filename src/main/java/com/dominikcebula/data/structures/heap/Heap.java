@@ -4,13 +4,10 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Heap<T extends Comparable<T>> {
-    private final Class<T> elementClass;
-
     private T[] elements;
     private int size;
 
     public Heap(Class<T> elementClass, int capacity) {
-        this.elementClass = elementClass;
         if (capacity <= 0)
             throw new IllegalArgumentException("Heap capacity needs to be greater than zero.");
 
