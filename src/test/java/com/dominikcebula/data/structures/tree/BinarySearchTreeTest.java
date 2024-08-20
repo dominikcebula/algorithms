@@ -86,4 +86,46 @@ class BinarySearchTreeTest {
         assertThat(tree.toArray())
                 .isEqualTo(new Integer[]{50, 30, 70, 20, 40, 60, 80});
     }
+
+    @Test
+    void shouldReportThatValueExistsForOneElement() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
+
+        tree.add(50);
+
+        assertThat(tree.exists(50))
+                .isTrue();
+    }
+
+    @Test
+    void shouldReportThatValueDoesNotExistsForNoElements() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
+
+        assertThat(tree.exists(50))
+                .isFalse();
+    }
+
+    @Test
+    void shouldReportThatValueExistsForMultipleElement() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
+
+        tree.add(50);
+        tree.add(40);
+        tree.add(70);
+
+        assertThat(tree.exists(70))
+                .isTrue();
+    }
+
+    @Test
+    void shouldReportThatValueDoesNotExistsForMultipleElement() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
+
+        tree.add(50);
+        tree.add(40);
+        tree.add(70);
+
+        assertThat(tree.exists(71))
+                .isFalse();
+    }
 }
