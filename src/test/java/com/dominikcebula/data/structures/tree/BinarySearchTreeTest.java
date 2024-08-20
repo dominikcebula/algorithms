@@ -52,6 +52,26 @@ class BinarySearchTreeTest {
     }
 
     @Test
+    void shouldNotAddTheSameValueMultipleTimes() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
+
+        tree.add(2);
+        tree.add(1);
+        tree.add(3);
+
+        tree.add(1);
+        tree.add(1);
+        tree.add(1);
+
+        tree.add(3);
+        tree.add(3);
+        tree.add(3);
+
+        assertThat(tree.toArray())
+                .isEqualTo(new Integer[]{2, 1, 3});
+    }
+
+    @Test
     void shouldAddMultipleElements() {
         BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
 

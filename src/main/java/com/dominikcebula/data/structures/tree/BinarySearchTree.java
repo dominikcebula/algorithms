@@ -4,6 +4,9 @@ import com.dominikcebula.data.structures.list.LinkedList;
 
 import java.lang.reflect.Array;
 
+import static com.dominikcebula.data.structures.tree.BinarySearchTree.ParentNodeToInsertValueResult.nodeWithValueAlreadyExists;
+import static com.dominikcebula.data.structures.tree.BinarySearchTree.ParentNodeToInsertValueResult.parentNodeToInsertValue;
+
 public class BinarySearchTree<T extends Comparable<T>> {
     private final Class<T> elementClass;
 
@@ -17,16 +20,37 @@ public class BinarySearchTree<T extends Comparable<T>> {
     public void add(T value) {
         if (root == null) {
             root = new Node<>(value);
+            ++size;
         } else {
-            Node<T> parentNodeToInsertValue = findParentNodeToInsertValue(value);
+            ParentNodeToInsertValueResult<T> parentNodeToInsertValueResult = findParentNodeToInsertValue(value);
 
+            if (parentNodeToInsertValueResult.doesNodeWithValueAlreadyExists())
+                return;
+
+            Node<T> parentNodeToInsertValue = parentNodeToInsertValueResult.getParentNode();
             if (value.compareTo(parentNodeToInsertValue.getValue()) < 0)
                 parentNodeToInsertValue.setLeft(new Node<>(value));
             else
                 parentNodeToInsertValue.setRight(new Node<>(value));
+
+            ++size;
+        }
+    }
+
+    public boolean exists(T value) {
+        Node<T> currentNode = root;
+
+        while (currentNode != null) {
+            if (value.compareTo(currentNode.getValue()) == 0)
+                return true;
+
+            if (value.compareTo(currentNode.getValue()) < 0)
+                currentNode = currentNode.getLeft();
+            else
+                currentNode = currentNode.getRight();
         }
 
-        ++size;
+        return false;
     }
 
     public T[] toArray() {
@@ -55,11 +79,14 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return array;
     }
 
-    private Node<T> findParentNodeToInsertValue(T value) {
+    private ParentNodeToInsertValueResult<T> findParentNodeToInsertValue(T value) {
         Node<T> currentNode = root;
         Node<T> parentNode = currentNode;
 
         while (currentNode != null) {
+            if (currentNode.getValue().compareTo(value) == 0)
+                return nodeWithValueAlreadyExists();
+
             parentNode = currentNode;
             if (value.compareTo(currentNode.getValue()) < 0)
                 currentNode = currentNode.getLeft();
@@ -67,7 +94,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 currentNode = currentNode.getRight();
         }
 
-        return parentNode;
+        return parentNodeToInsertValue(parentNode);
     }
 
     private static class Node<T extends Comparable<T>> {
@@ -105,6 +132,32 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
         void setRight(Node<T> right) {
             this.right = right;
+        }
+    }
+
+    static class ParentNodeToInsertValueResult<T extends Comparable<T>> {
+        private final Node<T> parentNode;
+        private final boolean nodeWithValueAlreadyExists;
+
+        private ParentNodeToInsertValueResult(Node<T> parentNode, boolean nodeWithValueAlreadyExists) {
+            this.parentNode = parentNode;
+            this.nodeWithValueAlreadyExists = nodeWithValueAlreadyExists;
+        }
+
+        static <T extends Comparable<T>> ParentNodeToInsertValueResult<T> parentNodeToInsertValue(Node<T> parentNode) {
+            return new ParentNodeToInsertValueResult<>(parentNode, false);
+        }
+
+        static <T extends Comparable<T>> ParentNodeToInsertValueResult<T> nodeWithValueAlreadyExists() {
+            return new ParentNodeToInsertValueResult<>(null, true);
+        }
+
+        Node<T> getParentNode() {
+            return parentNode;
+        }
+
+        boolean doesNodeWithValueAlreadyExists() {
+            return nodeWithValueAlreadyExists;
         }
     }
 }
