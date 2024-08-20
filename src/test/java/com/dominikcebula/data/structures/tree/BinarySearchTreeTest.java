@@ -16,6 +16,42 @@ class BinarySearchTreeTest {
     }
 
     @Test
+    void shouldAddThreeElement() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
+
+        tree.add(2);
+        tree.add(1);
+        tree.add(3);
+
+        assertThat(tree.toArray())
+                .isEqualTo(new Integer[]{2, 1, 3});
+    }
+
+    @Test
+    void shouldAddThreeElementAllToRightChild() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
+
+        tree.add(1);
+        tree.add(2);
+        tree.add(3);
+
+        assertThat(tree.toArray())
+                .isEqualTo(new Integer[]{1, 2, 3});
+    }
+
+    @Test
+    void shouldAddThreeElementAllToLeftChild() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
+
+        tree.add(3);
+        tree.add(2);
+        tree.add(1);
+
+        assertThat(tree.toArray())
+                .isEqualTo(new Integer[]{3, 2, 1});
+    }
+
+    @Test
     void shouldAddMultipleElements() {
         BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
 
