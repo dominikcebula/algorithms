@@ -1,54 +1,75 @@
 package com.dominikcebula.data.structures.tree;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.stream.Stream;
+
+import static java.util.Arrays.stream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class BinarySearchTreeTest {
-    @Test
-    void shouldAddOneElement() {
-        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
-
-        tree.add(50);
-
-        assertThat(tree.toArray())
-                .isEqualTo(new Integer[]{50});
+    private static Stream<Arguments> treeConstructionCases() {
+        return Stream.of(
+                Arguments.of(new int[]{1}, new Integer[]{1}),
+                Arguments.of(new int[]{1, 2, 3}, new Integer[]{1, 2, 3}),
+                Arguments.of(new int[]{2, 1, 3}, new Integer[]{2, 1, 3}),
+                Arguments.of(new int[]{3, 2, 1}, new Integer[]{3, 2, 1}),
+                Arguments.of(new int[]{50, 30, 70, 20, 40, 60, 80}, new Integer[]{50, 30, 70, 20, 40, 60, 80})
+        );
     }
 
-    @Test
-    void shouldAddThreeElement() {
+    @ParameterizedTest
+    @MethodSource("treeConstructionCases")
+    void shouldConstructTreeCorrectly(int[] elements, Integer[] expectedTree) {
         BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
 
-        tree.add(2);
-        tree.add(1);
-        tree.add(3);
+        stream(elements).forEach(tree::add);
 
         assertThat(tree.toArray())
-                .isEqualTo(new Integer[]{2, 1, 3});
+                .isEqualTo(expectedTree);
     }
 
-    @Test
-    void shouldAddThreeElementAllToRightChild() {
-        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
-
-        tree.add(1);
-        tree.add(2);
-        tree.add(3);
-
-        assertThat(tree.toArray())
-                .isEqualTo(new Integer[]{1, 2, 3});
+    private static Stream<Arguments> treeValueExistenceCases() {
+        return Stream.of(
+                Arguments.of(new int[]{}, 1, false),
+                Arguments.of(new int[]{1}, 1, true),
+                Arguments.of(new int[]{1}, 2, false),
+                Arguments.of(new int[]{1, 2, 3}, 1, true),
+                Arguments.of(new int[]{1, 2, 3}, 2, true),
+                Arguments.of(new int[]{1, 2, 3}, 3, true),
+                Arguments.of(new int[]{1, 2, 3}, 0, false),
+                Arguments.of(new int[]{1, 2, 3}, 4, false),
+                Arguments.of(new int[]{2, 1, 3}, 1, true),
+                Arguments.of(new int[]{2, 1, 3}, 2, true),
+                Arguments.of(new int[]{2, 1, 3}, 3, true),
+                Arguments.of(new int[]{2, 1, 3}, 0, false),
+                Arguments.of(new int[]{2, 1, 3}, 4, false),
+                Arguments.of(new int[]{3, 2, 1}, 1, true),
+                Arguments.of(new int[]{3, 2, 1}, 2, true),
+                Arguments.of(new int[]{3, 2, 1}, 3, true),
+                Arguments.of(new int[]{3, 2, 1}, 0, false),
+                Arguments.of(new int[]{3, 2, 1}, 4, false),
+                Arguments.of(new int[]{50, 30, 70, 20, 40, 60, 80}, 70, true),
+                Arguments.of(new int[]{50, 30, 70, 20, 40, 60, 80}, 50, true),
+                Arguments.of(new int[]{50, 30, 70, 20, 40, 60, 80}, 80, true),
+                Arguments.of(new int[]{50, 30, 70, 20, 40, 60, 80}, 60, true),
+                Arguments.of(new int[]{50, 30, 70, 20, 40, 60, 80}, 100, false),
+                Arguments.of(new int[]{50, 30, 70, 20, 40, 60, 80}, 10, false)
+        );
     }
 
-    @Test
-    void shouldAddThreeElementAllToLeftChild() {
+    @ParameterizedTest
+    @MethodSource("treeValueExistenceCases")
+    void shouldReportValueExistence(int[] elements, int elementToFind, boolean expectedValueExistsResult) {
         BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
 
-        tree.add(3);
-        tree.add(2);
-        tree.add(1);
+        stream(elements).forEach(tree::add);
 
-        assertThat(tree.toArray())
-                .isEqualTo(new Integer[]{3, 2, 1});
+        assertThat(tree.exists(elementToFind))
+                .isEqualTo(expectedValueExistsResult);
     }
 
     @Test
@@ -72,80 +93,10 @@ class BinarySearchTreeTest {
     }
 
     @Test
-    void shouldAddMultipleElements() {
-        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
-
-        tree.add(50);
-        tree.add(30);
-        tree.add(70);
-        tree.add(20);
-        tree.add(40);
-        tree.add(60);
-        tree.add(80);
-
-        assertThat(tree.toArray())
-                .isEqualTo(new Integer[]{50, 30, 70, 20, 40, 60, 80});
-    }
-
-    @Test
-    void shouldReportThatValueExistsForOneElement() {
-        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
-
-        tree.add(50);
-
-        assertThat(tree.exists(50))
-                .isTrue();
-    }
-
-    @Test
-    void shouldReportThatValueDoesNotExistsForNoElements() {
-        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
-
-        assertThat(tree.exists(50))
-                .isFalse();
-    }
-
-    @Test
     void shouldCorrectlyConstructArrayForEmptyTree() {
         BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
 
         assertThat(tree.toArray())
                 .isEqualTo(new Integer[]{});
-    }
-
-    @Test
-    void shouldReportThatValueExistsForMultipleElementWhenAskingForLeftChild() {
-        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
-
-        tree.add(50);
-        tree.add(40);
-        tree.add(70);
-
-        assertThat(tree.exists(40))
-                .isTrue();
-    }
-
-    @Test
-    void shouldReportThatValueExistsForMultipleElementWhenAskingForRightChild() {
-        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
-
-        tree.add(50);
-        tree.add(40);
-        tree.add(70);
-
-        assertThat(tree.exists(70))
-                .isTrue();
-    }
-
-    @Test
-    void shouldReportThatValueDoesNotExistsForMultipleElement() {
-        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
-
-        tree.add(50);
-        tree.add(40);
-        tree.add(70);
-
-        assertThat(tree.exists(71))
-                .isFalse();
     }
 }
