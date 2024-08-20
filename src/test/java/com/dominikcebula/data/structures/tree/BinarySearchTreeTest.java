@@ -17,7 +17,9 @@ class BinarySearchTreeTest {
                 Arguments.of(new int[]{1, 2, 3}, new Integer[]{1, 2, 3}),
                 Arguments.of(new int[]{2, 1, 3}, new Integer[]{2, 1, 3}),
                 Arguments.of(new int[]{3, 2, 1}, new Integer[]{3, 2, 1}),
-                Arguments.of(new int[]{50, 30, 70, 20, 40, 60, 80}, new Integer[]{50, 30, 70, 20, 40, 60, 80})
+                Arguments.of(new int[]{50, 30, 70, 20, 40, 60, 80}, new Integer[]{50, 30, 70, 20, 40, 60, 80}),
+                Arguments.of(new int[]{100, 20, 500, 10, 30}, new Integer[]{100, 20, 500, 10, 30}),
+                Arguments.of(new int[]{100, 20, 500, 10, 30, 40}, new Integer[]{100, 20, 500, 10, 30, 40})
         );
     }
 
@@ -57,7 +59,11 @@ class BinarySearchTreeTest {
                 Arguments.of(new int[]{50, 30, 70, 20, 40, 60, 80}, 80, true),
                 Arguments.of(new int[]{50, 30, 70, 20, 40, 60, 80}, 60, true),
                 Arguments.of(new int[]{50, 30, 70, 20, 40, 60, 80}, 100, false),
-                Arguments.of(new int[]{50, 30, 70, 20, 40, 60, 80}, 10, false)
+                Arguments.of(new int[]{50, 30, 70, 20, 40, 60, 80}, 10, false),
+                Arguments.of(new int[]{100, 20, 500, 10, 30, 40}, 500, true),
+                Arguments.of(new int[]{100, 20, 500, 10, 30, 40}, 40, true),
+                Arguments.of(new int[]{100, 20, 500, 10, 30, 40}, 20, true),
+                Arguments.of(new int[]{100, 20, 500, 10, 30, 40}, 80, false)
         );
     }
 
