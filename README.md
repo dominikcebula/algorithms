@@ -70,6 +70,11 @@ This repository contains sample Algorithms & Data Structures.
 * [Implementation](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Fdata%2Fstructures%2Fheap%2FHeap.java)
 * [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Fdata%2Fstructures%2Fheap%2FHeapTest.java)
 
+## Binary Search Tree
+
+* [Implementation](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Fdata%2Fstructures%2Ftree%2FBinarySearchTree.java)
+* [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Fdata%2Fstructures%2Ftree%2FBinarySearchTreeTest.java)
+
 ## Linked List
 
 * [Implementation](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Fdata%2Fstructures%2Flist%2FLinkedList.java)
