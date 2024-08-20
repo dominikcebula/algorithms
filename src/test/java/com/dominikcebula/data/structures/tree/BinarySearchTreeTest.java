@@ -106,7 +106,27 @@ class BinarySearchTreeTest {
     }
 
     @Test
-    void shouldReportThatValueExistsForMultipleElement() {
+    void shouldCorrectlyConstructArrayForEmptyTree() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
+
+        assertThat(tree.toArray())
+                .isEqualTo(new Integer[]{});
+    }
+
+    @Test
+    void shouldReportThatValueExistsForMultipleElementWhenAskingForLeftChild() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
+
+        tree.add(50);
+        tree.add(40);
+        tree.add(70);
+
+        assertThat(tree.exists(40))
+                .isTrue();
+    }
+
+    @Test
+    void shouldReportThatValueExistsForMultipleElementWhenAskingForRightChild() {
         BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
 
         tree.add(50);
