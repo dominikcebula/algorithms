@@ -14,7 +14,7 @@ public class MinCostPathMemoization {
         return findMinCostPath(costs, targetPositionM, targetPositionN, memo);
     }
 
-    private int findMinCostPath(int[][] costs, int targetPositionM, int targetPositionN, int memo[][]) {
+    private int findMinCostPath(int[][] costs, int targetPositionM, int targetPositionN, int[][] memo) {
         if (targetPositionM < 0 || targetPositionN < 0)
             return NO_VALUE;
 
