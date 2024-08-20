@@ -8,7 +8,7 @@ public class MinCostPathMemoization {
     private static final int NO_VALUE = -1;
 
     public int findMinCostPath(int[][] costs, int targetPositionM, int targetPositionN) {
-        int memo[][] = new int[costs.length][costs[0].length];
+        int[][] memo = new int[costs.length][costs[0].length];
         ArrayUtils.fill2d(memo, NO_VALUE);
 
         return findMinCostPath(costs, targetPositionM, targetPositionN, memo);
