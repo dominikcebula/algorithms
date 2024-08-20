@@ -152,11 +152,11 @@ public class BinarySearchTree<T extends Comparable<T>> {
             return new ParentNodeToInsertValueSearchResult<>(null, true);
         }
 
-        Node<T> getParentNode() {
+        private Node<T> getParentNode() {
             return parentNode;
         }
 
-        boolean doesNodeWithValueAlreadyExists() {
+        private boolean doesNodeWithValueAlreadyExists() {
             return nodeWithValueAlreadyExists;
         }
     }

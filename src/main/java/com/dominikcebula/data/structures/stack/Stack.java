@@ -37,19 +37,19 @@ public class Stack<T> {
         private final T value;
         private StackElement<T> next;
 
-        StackElement(T value) {
+        private StackElement(T value) {
             this.value = value;
         }
 
-        public T getValue() {
+        private T getValue() {
             return value;
         }
 
-        public StackElement<T> getNext() {
+        private StackElement<T> getNext() {
             return next;
         }
 
-        public void setNext(StackElement<T> next) {
+        private void setNext(StackElement<T> next) {
             this.next = next;
         }
     }

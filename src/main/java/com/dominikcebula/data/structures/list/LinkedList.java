@@ -102,27 +102,27 @@ public class LinkedList<T> {
         private Node<T> prev;
         private Node<T> next;
 
-        Node(T element) {
+        private Node(T element) {
             this.element = element;
         }
 
-        public T getElement() {
+        private T getElement() {
             return element;
         }
 
-        public Node<T> getPrev() {
+        private Node<T> getPrev() {
             return prev;
         }
 
-        public void setPrev(Node<T> prev) {
+        private void setPrev(Node<T> prev) {
             this.prev = prev;
         }
 
-        public Node<T> getNext() {
+        private Node<T> getNext() {
             return next;
         }
 
-        public void setNext(Node<T> next) {
+        private void setNext(Node<T> next) {
             this.next = next;
         }
     }
