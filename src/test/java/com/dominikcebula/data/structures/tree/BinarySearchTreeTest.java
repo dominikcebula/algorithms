@@ -81,6 +81,7 @@ class BinarySearchTreeTest {
     private static Stream<Arguments> elementRemovalCases() {
         return Stream.of(
                 Arguments.of(new int[]{}, 1, new Integer[]{}),
+                Arguments.of(new int[]{1}, 1, new Integer[]{}),
                 Arguments.of(new int[]{2, 1, 3}, 1, new Integer[]{2, 3}),
                 Arguments.of(new int[]{2, 1, 3}, 3, new Integer[]{2, 1}),
                 Arguments.of(new int[]{2, 1, 3}, 2, new Integer[]{3, 1}),
@@ -135,6 +136,30 @@ class BinarySearchTreeTest {
     @Test
     void shouldCorrectlyConstructArrayForEmptyTree() {
         BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
+
+        assertThat(tree.toArray())
+                .isEqualTo(new Integer[]{});
+    }
+
+    @Test
+    void shouldRemoveAllElements() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
+
+        tree.add(50);
+        tree.add(30);
+        tree.add(70);
+        tree.add(20);
+        tree.add(40);
+        tree.add(60);
+        tree.add(80);
+
+        tree.remove(70);
+        tree.remove(50);
+        tree.remove(20);
+        tree.remove(30);
+        tree.remove(40);
+        tree.remove(60);
+        tree.remove(80);
 
         assertThat(tree.toArray())
                 .isEqualTo(new Integer[]{});
