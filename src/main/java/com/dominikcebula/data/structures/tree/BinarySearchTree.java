@@ -55,7 +55,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
         Node<T> parentNode = nodeSearchResult.getParentNode();
         Node<T> nodeToRemove = nodeSearchResult.getNode();
 
-        if (!nodeToRemove.hasAnyChild()) {
+        if (root == nodeToRemove && size == 1) {
+            root = null;
+        } else if (!nodeToRemove.hasAnyChild()) {
             removeByUpdatingParentToNotPointToNodeToRemove(nodeToRemove, parentNode);
         } else if (nodeToRemove.hasOnlyLeftChild()) {
             removeByUpdatingParentToPointToLeftChildOfNodeToRemove(nodeToRemove, parentNode);

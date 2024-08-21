@@ -164,4 +164,24 @@ class BinarySearchTreeTest {
         assertThat(tree.toArray())
                 .isEqualTo(new Integer[]{});
     }
+
+    @Test
+    void shouldRemoveAndThenAddElements() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>(Integer.class);
+
+        tree.add(2);
+        tree.add(1);
+        tree.add(3);
+
+        tree.remove(2);
+        tree.remove(1);
+        tree.remove(3);
+
+        tree.add(20);
+        tree.add(10);
+        tree.add(30);
+
+        assertThat(tree.toArray())
+                .isEqualTo(new Integer[]{20, 10, 30});
+    }
 }
