@@ -22,8 +22,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public void add(T value) {
+        Node<T> nodeToAdd = new Node<>(value);
+
         if (root == null) {
-            root = new Node<>(value);
+            root = nodeToAdd;
             ++size;
         } else {
             ParentNodeSearchResult<T> parentNodeSearchResult = findParentNodeAddChild(value);
@@ -32,10 +34,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 return;
 
             Node<T> parentNodeToInsertValue = parentNodeSearchResult.getParentNode();
-            if (value.compareTo(parentNodeToInsertValue.getValue()) < 0)
-                parentNodeToInsertValue.setLeft(new Node<>(value));
-            else
-                parentNodeToInsertValue.setRight(new Node<>(value));
+            addNodeToParent(value, parentNodeToInsertValue, nodeToAdd);
 
             ++size;
         }
@@ -48,7 +47,28 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public void remove(T elementToRemove) {
+        NodeSearchResult<T> nodeSearchResult = findNode(elementToRemove);
 
+        if (nodeSearchResult.getSearchResultState() == NOT_FOUND)
+            return;
+
+        Node<T> parentNode = nodeSearchResult.getParentNode();
+        Node<T> nodeToRemove = nodeSearchResult.getNode();
+
+        if (!nodeToRemove.hasAnyChild()) {
+            removeByUpdatingParentToNotPointToAnyChild(nodeToRemove, parentNode);
+        } else if (nodeToRemove.hasOnlyLeftChild()) {
+            removeByUpdatingParentToPointToLeftChildOfNodeToRemove(nodeToRemove, parentNode);
+        } else if (nodeToRemove.hasOnlyRightChild()) {
+            removeByUpdatingParentToPointToRightChildOfNodeToRemove(nodeToRemove, parentNode);
+        } else {
+            MinNodeSearchResult<T> minNodeSearchResult = findMinNode(nodeToRemove.getRight(), nodeToRemove);
+
+            updateParentToChildEdge(minNodeSearchResult.minNode().getValue(), minNodeSearchResult.minNodeParent(), null);
+            nodeToRemove.setValue(minNodeSearchResult.minNode().getValue());
+        }
+
+        --size;
     }
 
     public T[] toArray() {
@@ -95,6 +115,15 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return nodeNotFound();
     }
 
+    private MinNodeSearchResult<T> findMinNode(Node<T> currentNode, Node<T> parentNode) {
+        while (currentNode.hasLeft()) {
+            parentNode = currentNode;
+            currentNode = currentNode.getLeft();
+        }
+
+        return new MinNodeSearchResult<>(currentNode, parentNode);
+    }
+
     private ParentNodeSearchResult<T> findParentNodeAddChild(T value) {
         Node<T> currentNode = root;
         Node<T> parentNode = currentNode;
@@ -113,8 +142,31 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return parentNodeToInsertChild(parentNode);
     }
 
+    private void addNodeToParent(T value, Node<T> parentNodeToInsertValue, Node<T> nodeToAdd) {
+        updateParentToChildEdge(value, parentNodeToInsertValue, nodeToAdd);
+    }
+
+    private void removeByUpdatingParentToNotPointToAnyChild(Node<T> nodeToRemove, Node<T> parentNode) {
+        updateParentToChildEdge(nodeToRemove.getValue(), parentNode, null);
+    }
+
+    private void removeByUpdatingParentToPointToLeftChildOfNodeToRemove(Node<T> nodeToRemove, Node<T> parentNode) {
+        updateParentToChildEdge(nodeToRemove.getValue(), parentNode, nodeToRemove.getLeft());
+    }
+
+    private void removeByUpdatingParentToPointToRightChildOfNodeToRemove(Node<T> nodeToRemove, Node<T> parentNode) {
+        updateParentToChildEdge(nodeToRemove.getValue(), parentNode, nodeToRemove.getRight());
+    }
+
+    private void updateParentToChildEdge(T nodeValue, Node<T> parentNode, Node<T> node) {
+        if (nodeValue.compareTo(parentNode.getValue()) < 0)
+            parentNode.setLeft(node);
+        else
+            parentNode.setRight(node);
+    }
+
     private static class Node<T extends Comparable<T>> {
-        private final T value;
+        private T value;
         private Node<T> left;
         private Node<T> right;
 
@@ -124,6 +176,22 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
         T getValue() {
             return value;
+        }
+
+        void setValue(T value) {
+            this.value = value;
+        }
+
+        boolean hasAnyChild() {
+            return hasLeft() || hasRight();
+        }
+
+        boolean hasOnlyLeftChild() {
+            return hasLeft() && !hasRight();
+        }
+
+        boolean hasOnlyRightChild() {
+            return !hasLeft() && hasRight();
         }
 
         boolean hasLeft() {
@@ -149,6 +217,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
         void setRight(Node<T> right) {
             this.right = right;
         }
+    }
+
+    private record MinNodeSearchResult<T extends Comparable<T>>(Node<T> minNode, Node<T> minNodeParent) {
     }
 
     static class NodeSearchResult<T extends Comparable<T>> {
