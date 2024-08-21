@@ -53,6 +53,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return false;
     }
 
+    public void remove(T elementToRemove) {
+
+    }
+
     public T[] toArray() {
         T[] array = (T[]) Array.newInstance(elementClass, size);
 
