@@ -24,6 +24,12 @@ This repository contains sample Algorithms & Data Structures.
 * [Solution - Tabulation](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fcoin%2Fchange%2FCoinChangeTabulation.java)
 * [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fcoin%2Fchange%2FCoinChangeTest.java)
 
+### Rod Cutting
+
+* [Description](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Frod%2Fcutting%2FREADME.md)
+* [Solution - Recursion](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Frod%2Fcutting%2FRodCuttingRecursion.java)
+* [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Frod%2Fcutting%2FRodCuttingTest.java)
+
 ### Longest Increasing Subsequence
 
 * [Description](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Flongest%2Fincreasing%2Fsubsequence%2FREADME.md)
