@@ -105,10 +105,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 return nodeFound(currentNode, parentNode);
 
             parentNode = currentNode;
-            if (value.compareTo(currentNode.getValue()) < 0)
-                currentNode = currentNode.getLeft();
-            else
-                currentNode = currentNode.getRight();
+            currentNode = currentNode.navigateToChildNodeByValue(value);
         }
 
         return nodeNotFound();
@@ -132,10 +129,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 return nodeWithValueAlreadyExists();
 
             parentNode = currentNode;
-            if (value.compareTo(currentNode.getValue()) < 0)
-                currentNode = currentNode.getLeft();
-            else
-                currentNode = currentNode.getRight();
+            currentNode = currentNode.navigateToChildNodeByValue(value);
         }
 
         return parentNodeToInsertChild(parentNode);
@@ -190,6 +184,13 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
         void setValue(T value) {
             this.value = value;
+        }
+
+        Node<T> navigateToChildNodeByValue(T value) {
+            if (value.compareTo(getValue()) < 0)
+                return getLeft();
+            else
+                return getRight();
         }
 
         boolean hasAnyChild() {
