@@ -8,8 +8,8 @@ import static com.dominikcebula.data.structures.tree.BinarySearchTree.NodeSearch
 import static com.dominikcebula.data.structures.tree.BinarySearchTree.NodeSearchResult.NodeSearchResultState.NOT_FOUND;
 import static com.dominikcebula.data.structures.tree.BinarySearchTree.NodeSearchResult.nodeFound;
 import static com.dominikcebula.data.structures.tree.BinarySearchTree.NodeSearchResult.nodeNotFound;
-import static com.dominikcebula.data.structures.tree.BinarySearchTree.ParentNodeToInsertValueSearchResult.nodeWithValueAlreadyExists;
-import static com.dominikcebula.data.structures.tree.BinarySearchTree.ParentNodeToInsertValueSearchResult.parentNodeToInsertValue;
+import static com.dominikcebula.data.structures.tree.BinarySearchTree.ParentNodeSearchResult.nodeWithValueAlreadyExists;
+import static com.dominikcebula.data.structures.tree.BinarySearchTree.ParentNodeSearchResult.parentNodeToInsertChild;
 
 public class BinarySearchTree<T extends Comparable<T>> {
     private final Class<T> elementClass;
@@ -26,12 +26,12 @@ public class BinarySearchTree<T extends Comparable<T>> {
             root = new Node<>(value);
             ++size;
         } else {
-            ParentNodeToInsertValueSearchResult<T> parentNodeToInsertValueSearchResult = findParentNodeToInsertValue(value);
+            ParentNodeSearchResult<T> parentNodeSearchResult = findParentNodeAddChild(value);
 
-            if (parentNodeToInsertValueSearchResult.doesNodeWithValueAlreadyExists())
+            if (parentNodeSearchResult.doesNodeWithValueAlreadyExists())
                 return;
 
-            Node<T> parentNodeToInsertValue = parentNodeToInsertValueSearchResult.getParentNode();
+            Node<T> parentNodeToInsertValue = parentNodeSearchResult.getParentNode();
             if (value.compareTo(parentNodeToInsertValue.getValue()) < 0)
                 parentNodeToInsertValue.setLeft(new Node<>(value));
             else
@@ -95,7 +95,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return nodeNotFound();
     }
 
-    private ParentNodeToInsertValueSearchResult<T> findParentNodeToInsertValue(T value) {
+    private ParentNodeSearchResult<T> findParentNodeAddChild(T value) {
         Node<T> currentNode = root;
         Node<T> parentNode = currentNode;
 
@@ -110,7 +110,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 currentNode = currentNode.getRight();
         }
 
-        return parentNodeToInsertValue(parentNode);
+        return parentNodeToInsertChild(parentNode);
     }
 
     private static class Node<T extends Comparable<T>> {
@@ -188,21 +188,21 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
-    static class ParentNodeToInsertValueSearchResult<T extends Comparable<T>> {
+    static class ParentNodeSearchResult<T extends Comparable<T>> {
         private final Node<T> parentNode;
         private final boolean nodeWithValueAlreadyExists;
 
-        private ParentNodeToInsertValueSearchResult(Node<T> parentNode, boolean nodeWithValueAlreadyExists) {
+        private ParentNodeSearchResult(Node<T> parentNode, boolean nodeWithValueAlreadyExists) {
             this.parentNode = parentNode;
             this.nodeWithValueAlreadyExists = nodeWithValueAlreadyExists;
         }
 
-        static <T extends Comparable<T>> ParentNodeToInsertValueSearchResult<T> parentNodeToInsertValue(Node<T> parentNode) {
-            return new ParentNodeToInsertValueSearchResult<>(parentNode, false);
+        static <T extends Comparable<T>> ParentNodeSearchResult<T> parentNodeToInsertChild(Node<T> parentNode) {
+            return new ParentNodeSearchResult<>(parentNode, false);
         }
 
-        static <T extends Comparable<T>> ParentNodeToInsertValueSearchResult<T> nodeWithValueAlreadyExists() {
-            return new ParentNodeToInsertValueSearchResult<>(null, true);
+        static <T extends Comparable<T>> ParentNodeSearchResult<T> nodeWithValueAlreadyExists() {
+            return new ParentNodeSearchResult<>(null, true);
         }
 
         private Node<T> getParentNode() {
