@@ -13,9 +13,11 @@ class RodCuttingTest {
 
     public static Stream<Arguments> maxCuttingRodValueCases() {
         return Stream.of(
+                Arguments.of(new int[]{}, 0),
+                Arguments.of(new int[]{5}, 5),
                 Arguments.of(new int[]{1, 5, 8, 9, 10, 17, 17, 20}, 22),
                 Arguments.of(new int[]{3, 5, 8, 9, 10, 17}, 18),
-                Arguments.of(new int[]{5}, 5)
+                Arguments.of(new int[]{1, 4, 6, 5}, 7)
         );
     }
 
