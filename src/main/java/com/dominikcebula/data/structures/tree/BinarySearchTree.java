@@ -4,6 +4,10 @@ import com.dominikcebula.data.structures.list.LinkedList;
 
 import java.lang.reflect.Array;
 
+import static com.dominikcebula.data.structures.tree.BinarySearchTree.NodeSearchResult.NodeSearchResultState.FOUND;
+import static com.dominikcebula.data.structures.tree.BinarySearchTree.NodeSearchResult.NodeSearchResultState.NOT_FOUND;
+import static com.dominikcebula.data.structures.tree.BinarySearchTree.NodeSearchResult.nodeFound;
+import static com.dominikcebula.data.structures.tree.BinarySearchTree.NodeSearchResult.nodeNotFound;
 import static com.dominikcebula.data.structures.tree.BinarySearchTree.ParentNodeToInsertValueSearchResult.nodeWithValueAlreadyExists;
 import static com.dominikcebula.data.structures.tree.BinarySearchTree.ParentNodeToInsertValueSearchResult.parentNodeToInsertValue;
 
@@ -38,19 +42,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public boolean exists(T value) {
-        Node<T> currentNode = root;
+        NodeSearchResult<T> nodeSearchResult = findNode(value);
 
-        while (currentNode != null) {
-            if (value.compareTo(currentNode.getValue()) == 0)
-                return true;
-
-            if (value.compareTo(currentNode.getValue()) < 0)
-                currentNode = currentNode.getLeft();
-            else
-                currentNode = currentNode.getRight();
-        }
-
-        return false;
+        return nodeSearchResult.getSearchResultState() == FOUND;
     }
 
     public void remove(T elementToRemove) {
@@ -81,6 +75,24 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
 
         return array;
+    }
+
+    private NodeSearchResult<T> findNode(T value) {
+        Node<T> currentNode = root;
+        Node<T> parentNode = currentNode;
+
+        while (currentNode != null) {
+            if (currentNode.getValue().compareTo(value) == 0)
+                return nodeFound(currentNode, parentNode);
+
+            parentNode = currentNode;
+            if (value.compareTo(currentNode.getValue()) < 0)
+                currentNode = currentNode.getLeft();
+            else
+                currentNode = currentNode.getRight();
+        }
+
+        return nodeNotFound();
     }
 
     private ParentNodeToInsertValueSearchResult<T> findParentNodeToInsertValue(T value) {
@@ -136,6 +148,43 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
         void setRight(Node<T> right) {
             this.right = right;
+        }
+    }
+
+    static class NodeSearchResult<T extends Comparable<T>> {
+        private final NodeSearchResultState nodeSearchResultState;
+        private final Node<T> node;
+        private final Node<T> parentNode;
+
+        private NodeSearchResult(NodeSearchResultState nodeSearchResultState, Node<T> node, Node<T> parentNode) {
+            this.nodeSearchResultState = nodeSearchResultState;
+            this.node = node;
+            this.parentNode = parentNode;
+        }
+
+        static <T extends Comparable<T>> NodeSearchResult<T> nodeFound(Node<T> node, Node<T> parentNode) {
+            return new NodeSearchResult<>(FOUND, node, parentNode);
+        }
+
+        static <T extends Comparable<T>> NodeSearchResult<T> nodeNotFound() {
+            return new NodeSearchResult<>(NOT_FOUND, null, null);
+        }
+
+        public NodeSearchResultState getSearchResultState() {
+            return nodeSearchResultState;
+        }
+
+        Node<T> getNode() {
+            return node;
+        }
+
+        Node<T> getParentNode() {
+            return parentNode;
+        }
+
+        enum NodeSearchResultState {
+            FOUND,
+            NOT_FOUND
         }
     }
 
