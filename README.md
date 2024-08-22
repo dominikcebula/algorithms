@@ -32,6 +32,12 @@ This repository contains sample Algorithms & Data Structures.
 * [Solution - Tabulation](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Frod%2Fcutting%2FRodCuttingTabulation.java)
 * [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Frod%2Fcutting%2FRodCuttingTest.java)
 
+### Subset Sum
+
+* [Description](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fsubset%2Fsum%2FREADME.md)
+* [Solution - Recursion](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fsubset%2Fsum%2FSubsetSumRecursion.java)
+* [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fsubset%2Fsum%2FSubsetSumRecursionTest.java)
+
 ### Longest Increasing Subsequence
 
 * [Description](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Flongest%2Fincreasing%2Fsubsequence%2FREADME.md)
