@@ -10,6 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class RodCuttingTest {
     private final RodCuttingRecursion rodCuttingRecursion = new RodCuttingRecursion();
+    private final RodCuttingMemoization rodCuttingMemoization = new RodCuttingMemoization();
 
     public static Stream<Arguments> maxCuttingRodValueCases() {
         return Stream.of(
@@ -35,6 +36,15 @@ class RodCuttingTest {
     @MethodSource("maxCuttingRodValueCases")
     void shouldFindMaxCuttingRodValueUsingRecursion(int[] prices, int expectedMaxCuttingRodValue) {
         int maxCuttingRodValue = rodCuttingRecursion.findMaxCuttingRodValue(prices);
+
+        assertThat(maxCuttingRodValue)
+                .isEqualTo(expectedMaxCuttingRodValue);
+    }
+
+    @ParameterizedTest
+    @MethodSource("maxCuttingRodValueCases")
+    void shouldFindMaxCuttingRodValueUsingMemoization(int[] prices, int expectedMaxCuttingRodValue) {
+        int maxCuttingRodValue = rodCuttingMemoization.findMaxCuttingRodValue(prices);
 
         assertThat(maxCuttingRodValue)
                 .isEqualTo(expectedMaxCuttingRodValue);
