@@ -28,6 +28,8 @@ This repository contains sample Algorithms & Data Structures.
 
 * [Description](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Frod%2Fcutting%2FREADME.md)
 * [Solution - Recursion](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Frod%2Fcutting%2FRodCuttingRecursion.java)
+* [Solution - Memoization](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Frod%2Fcutting%2FRodCuttingMemoization.java)
+* [Solution - Tabulation](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Frod%2Fcutting%2FRodCuttingTabulation.java)
 * [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Frod%2Fcutting%2FRodCuttingTest.java)
 
 ### Longest Increasing Subsequence
