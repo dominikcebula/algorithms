@@ -33,7 +33,6 @@ piece of length `i+1`. The length of the rod is equal to the size of the `prices
 ### Example 3
 
 * Input: `price[] = [1, 4, 6, 5]`
-* Output: `7`
-* Explanation: Rod has lengths of `4`. Maximum value of `7` can be obtained by cutting rod into two pieces. First piece
-  would have length of `3` and would be sold for `6`. Second piece would have lengths of `1` and would be sold for `1`.
-  This gives total value of `7`. 
+* Output: `8`
+* Explanation: Rod has lengths of `4`. Maximum value of `8` can be obtained by cutting rod into two pieces. Each piece
+  would have length of `2` and would be sold for `4`. `4 * 2 = 8`.
