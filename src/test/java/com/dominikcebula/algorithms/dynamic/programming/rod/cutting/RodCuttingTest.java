@@ -17,7 +17,17 @@ class RodCuttingTest {
                 Arguments.of(new int[]{5}, 5),
                 Arguments.of(new int[]{1, 5, 8, 9, 10, 17, 17, 20}, 22),
                 Arguments.of(new int[]{3, 5, 8, 9, 10, 17}, 18),
-                Arguments.of(new int[]{1, 4, 6, 5}, 7)
+                Arguments.of(new int[]{1, 4, 6, 5}, 7),
+                Arguments.of(new int[]{3, 6, 9, 12, 15, 14, 11}, 21),
+                Arguments.of(new int[]{2, 4, 5, 7, 11, 13, 14, 9, 12, 6}, 21),
+                Arguments.of(new int[]{1, 3, 4, 8, 10, 13}, 13),
+                Arguments.of(new int[]{2, 5, 7, 11, 9, 12, 13, 14, 6}, 23),
+                Arguments.of(new int[]{4, 8, 9, 12, 14}, 20),
+                Arguments.of(new int[]{3, 5, 7, 10, 11, 14, 15}, 21),
+                Arguments.of(new int[]{2, 3, 6, 7, 8, 10, 11, 13}, 16),
+                Arguments.of(new int[]{1, 4, 5, 9, 12, 13, 15}, 16),
+                Arguments.of(new int[]{2, 4, 7, 8, 10, 12, 14, 15}, 17),
+                Arguments.of(new int[]{1, 6, 7, 11, 13, 14, 15}, 19)
         );
     }
 
