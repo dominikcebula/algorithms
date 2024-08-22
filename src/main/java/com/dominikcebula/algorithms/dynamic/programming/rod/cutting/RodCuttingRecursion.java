@@ -13,9 +13,8 @@ public class RodCuttingRecursion {
         if (currentIndex < 0)
             return 0;
 
-        if (currentPieceLength == 1) {
+        if (currentPieceLength == 1)
             return rodLength * prices[currentIndex];
-        }
 
         if (currentPieceLength > rodLength)
             return findMaxCuttingRodValue(prices, currentIndex - 1, rodLength);
