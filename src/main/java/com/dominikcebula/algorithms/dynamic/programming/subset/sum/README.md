@@ -9,7 +9,7 @@ numbers.
 
 * `elements[]` - array of integers - set of numbers which needs to be checked if given sum can be created using those
   numbers
-* `sum` - single integer number - expected sum that be created using given set of numbers
+* `sum` - single integer number - expected sum that should be created using given set of numbers
 
 ## Output
 
