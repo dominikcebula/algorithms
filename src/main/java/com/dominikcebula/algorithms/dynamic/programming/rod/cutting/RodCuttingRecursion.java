@@ -21,7 +21,7 @@ public class RodCuttingRecursion {
             return findMaxCuttingRodValue(prices, currentIndex - 1, rodLength);
         else
             return Math.max(
-                    prices[currentIndex] + findMaxCuttingRodValue(prices, currentIndex - 1, rodLength - currentPieceLength),
+                    prices[currentIndex] + findMaxCuttingRodValue(prices, currentIndex, rodLength - currentPieceLength),
                     findMaxCuttingRodValue(prices, currentIndex - 1, rodLength)
             );
     }
