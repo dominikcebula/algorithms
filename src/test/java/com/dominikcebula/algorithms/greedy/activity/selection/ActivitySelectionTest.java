@@ -65,8 +65,8 @@ class ActivitySelectionTest {
 
     @ParameterizedTest
     @MethodSource("activitySelectionCases")
-    void shouldFindMaxNumberOfAttendedActivities(Activity[] activities, int expectedMaxNumberOfAttendedActivities) {
-        int maxNumberOfAttendedActivities = activitySelection.findMaxNumberOfAttendedActivities(activities);
+    void shouldFindMaxNumberOfActivitiesPossibleToAttend(Activity[] activities, int expectedMaxNumberOfAttendedActivities) {
+        int maxNumberOfAttendedActivities = activitySelection.findMaxNumberOfActivitiesPossibleToAttend(activities);
 
         assertThat(maxNumberOfAttendedActivities)
                 .isEqualTo(expectedMaxNumberOfAttendedActivities);

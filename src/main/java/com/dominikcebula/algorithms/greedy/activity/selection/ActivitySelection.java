@@ -3,7 +3,7 @@ package com.dominikcebula.algorithms.greedy.activity.selection;
 import java.util.Arrays;
 
 public class ActivitySelection {
-    public int findMaxNumberOfAttendedActivities(Activity[] activities) {
+    public int findMaxNumberOfActivitiesPossibleToAttend(Activity[] activities) {
         Arrays.sort(activities);
 
         int lastActivityEndTime = -1;

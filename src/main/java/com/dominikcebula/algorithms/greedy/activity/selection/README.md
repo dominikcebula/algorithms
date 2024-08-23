@@ -2,8 +2,8 @@
 
 ## Description
 
-Given list of activities, determine maximum amount of activities that a single person can take. Each activity is
-described by a start and end time. Activity `A` is represented as `A(start, end)`. A single person can only take a
+Given list of activities, determine maximum amount of activities that a single person can attend. Each activity is
+described by a start and end time. Activity is represented as `(start, end)`. A single person can only take a
 single
 activity at a time.
 
@@ -12,7 +12,7 @@ activity.
 
 ## Input
 
-* array of activities, each element of the array is given in a format `A(start, end)`
+* array of activities, each element of the array is given in a format `(start, end)`
 
 ## Output
 
