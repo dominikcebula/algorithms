@@ -10,6 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class SubsetSumTest {
     private final SubsetSumRecursion subsetSumRecursion = new SubsetSumRecursion();
+    private final SubsetSumTabulation subsetSumTabulation = new SubsetSumTabulation();
 
     public static Stream<Arguments> subsetSumCases() {
         return Stream.of(
@@ -43,6 +44,15 @@ class SubsetSumTest {
     @MethodSource("subsetSumCases")
     void shouldSolveSubsetSumProblemUsingRecursion(int[] elements, int sum, boolean expectedDoesSubsetSumExist) {
         boolean doesSubsetSumExist = subsetSumRecursion.doesSubsetSumExist(elements, sum);
+
+        assertThat(doesSubsetSumExist)
+                .isEqualTo(expectedDoesSubsetSumExist);
+    }
+
+    @ParameterizedTest
+    @MethodSource("subsetSumCases")
+    void shouldSolveSubsetSumProblemUsingTabulation(int[] elements, int sum, boolean expectedDoesSubsetSumExist) {
+        boolean doesSubsetSumExist = subsetSumTabulation.doesSubsetSumExist(elements, sum);
 
         assertThat(doesSubsetSumExist)
                 .isEqualTo(expectedDoesSubsetSumExist);
