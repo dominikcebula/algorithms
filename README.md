@@ -1,5 +1,30 @@
 [![CI Pipeline](https://github.com/dominikcebula/algorithms/actions/workflows/maven.yml/badge.svg)](https://github.com/dominikcebula/algorithms/actions/workflows/maven.yml)
 
+<!-- TOC -->
+
+* [Introduction](#introduction)
+* [Algorithms](#algorithms)
+    * [Dynamic Programming Algorithms](#dynamic-programming-algorithms)
+        * [Knapsack Problem](#knapsack-problem)
+        * [Coin Change](#coin-change)
+        * [Rod Cutting](#rod-cutting)
+        * [Subset Sum](#subset-sum)
+        * [Longest Increasing Subsequence](#longest-increasing-subsequence)
+        * [Longest Common Subsequence](#longest-common-subsequence)
+        * [Longest Palindromic Subsequence](#longest-palindromic-subsequence)
+        * [Min Cost Path](#min-cost-path)
+        * [Palindrome Partitioning](#palindrome-partitioning)
+    * [Greedy Algorithms](#greedy-algorithms)
+        * [Activity Selection](#activity-selection)
+* [Data Structures](#data-structures)
+    * [Heap](#heap)
+    * [Binary Search Tree](#binary-search-tree)
+    * [Linked List](#linked-list)
+    * [Stack](#stack)
+* [Author](#author)
+
+<!-- TOC -->
+
 # Introduction
 
 This repository contains sample Algorithms & Data Structures.
