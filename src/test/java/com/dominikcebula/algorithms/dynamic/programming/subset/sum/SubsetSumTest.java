@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SubsetSumRecursionTest {
+class SubsetSumTest {
     private final SubsetSumRecursion subsetSumRecursion = new SubsetSumRecursion();
 
     public static Stream<Arguments> subsetSumCases() {

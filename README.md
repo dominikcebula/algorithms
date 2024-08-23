@@ -36,7 +36,7 @@ This repository contains sample Algorithms & Data Structures.
 
 * [Description](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fsubset%2Fsum%2FREADME.md)
 * [Solution - Recursion](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fsubset%2Fsum%2FSubsetSumRecursion.java)
-* [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fsubset%2Fsum%2FSubsetSumRecursionTest.java)
+* [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fsubset%2Fsum%2FSubsetSumTest.java)
 
 ### Longest Increasing Subsequence
 
