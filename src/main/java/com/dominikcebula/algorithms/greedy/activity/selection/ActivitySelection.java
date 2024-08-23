@@ -6,13 +6,23 @@ public class ActivitySelection {
     public int findMaxNumberOfAttendedActivities(Activity[] activities) {
         Arrays.sort(activities);
 
-        return 0;
+        int lastActivityEndTime = -1;
+        int numberOfActivitiesTaken = 0;
+
+        for (Activity activity : activities) {
+            if (activity.startTime() > lastActivityEndTime) {
+                lastActivityEndTime = activity.endTime();
+                ++numberOfActivitiesTaken;
+            }
+        }
+
+        return numberOfActivitiesTaken;
     }
 
     record Activity(int startTime, int endTime) implements Comparable<Activity> {
         @Override
         public int compareTo(Activity other) {
-            return startTime() - other.endTime();
+            return endTime() - other.endTime();
         }
     }
 }

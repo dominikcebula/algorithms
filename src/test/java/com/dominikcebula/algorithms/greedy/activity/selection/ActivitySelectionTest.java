@@ -15,12 +15,26 @@ class ActivitySelectionTest {
     private static Stream<Arguments> activitySelectionCases() {
         return Stream.of(
                 Arguments.of(new Activity[]{}, 0),
-                Arguments.of(new Activity[]{new Activity(1, 6)}, 1)
+                Arguments.of(new Activity[]{new Activity(1, 6)}, 1),
                 Arguments.of(new Activity[]{new Activity(1, 6), new Activity(3, 7)}, 1),
                 Arguments.of(new Activity[]{new Activity(1, 6), new Activity(3, 8)}, 1),
                 Arguments.of(new Activity[]{new Activity(1, 3), new Activity(3, 6)}, 1),
                 Arguments.of(new Activity[]{new Activity(1, 3), new Activity(4, 6)}, 2),
-                Arguments.of(new Activity[]{new Activity(1, 2), new Activity(3, 4), new Activity(5, 6)}, 3)
+                Arguments.of(new Activity[]{
+                        new Activity(1, 2),
+                        new Activity(3, 4),
+                        new Activity(5, 6)
+                }, 3),
+                Arguments.of(new Activity[]{
+                        new Activity(2, 9),
+                        new Activity(12, 13),
+                        new Activity(1, 5),
+                        new Activity(2, 4),
+                        new Activity(6, 7),
+                        new Activity(9, 10),
+                        new Activity(2, 6),
+                        new Activity(8, 9),
+                }, 4)
         );
     }
 
