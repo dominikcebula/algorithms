@@ -26,6 +26,11 @@ class ActivitySelectionTest {
                         new Activity(5, 6)
                 }, 3),
                 Arguments.of(new Activity[]{
+                        new Activity(2, 4),
+                        new Activity(6, 8),
+                        new Activity(5, 9)
+                }, 2),
+                Arguments.of(new Activity[]{
                         new Activity(2, 9),
                         new Activity(12, 13),
                         new Activity(1, 5),
@@ -34,6 +39,26 @@ class ActivitySelectionTest {
                         new Activity(9, 10),
                         new Activity(2, 6),
                         new Activity(8, 9),
+                }, 4),
+                Arguments.of(new Activity[]{
+                        new Activity(1, 2),
+                        new Activity(3, 4),
+                        new Activity(5, 6),
+                        new Activity(7, 8),
+                        new Activity(9, 10),
+                        new Activity(11, 12),
+                        new Activity(13, 14),
+                        new Activity(15, 16),
+                }, 8),
+                Arguments.of(new Activity[]{
+                        new Activity(1, 3),
+                        new Activity(3, 5),
+                        new Activity(5, 7),
+                        new Activity(7, 9),
+                        new Activity(9, 11),
+                        new Activity(11, 13),
+                        new Activity(13, 15),
+                        new Activity(15, 16),
                 }, 4)
         );
     }
