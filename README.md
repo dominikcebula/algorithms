@@ -78,6 +78,14 @@ This repository contains sample Algorithms & Data Structures.
 * [Solution - Tabulation](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fpalindrome%2Fpartitioning%2FPalindromePartitioningTabulation.java)
 * [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fdynamic%2Fprogramming%2Fpalindrome%2Fpartitioning%2FPalindromePartitioningRecursionTest.java)
 
+## Greedy Algorithms
+
+### Activity Selection
+
+* [Description](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fgreedy%2Factivity%2Fselection%2FREADME.md)
+* [Solution](src%2Fmain%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fgreedy%2Factivity%2Fselection%2FActivitySelection.java)
+* [Tests](src%2Ftest%2Fjava%2Fcom%2Fdominikcebula%2Falgorithms%2Fgreedy%2Factivity%2Fselection%2FActivitySelectionTest.java)
+
 # Data Structures
 
 ## Heap
